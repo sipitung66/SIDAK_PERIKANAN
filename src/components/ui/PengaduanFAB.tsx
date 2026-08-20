@@ -60,33 +60,33 @@ export function PengaduanFAB() {
         <div className="fab-label items-center gap-2 px-4 py-2.5 rounded-2xl shadow-lg pointer-events-none"
           style={{
             background: 'rgba(10,22,40,0.92)',
-            border: '1px solid rgba(0,212,170,0.35)',
+            border: '1px solid rgba(251,191,36,0.35)',
             backdropFilter: 'blur(12px)',
-            color: '#e2e8f0',
+            color: '#1e293b',
             fontSize: 13,
             fontWeight: 600,
             whiteSpace: 'nowrap',
-            boxShadow: '0 4px 24px rgba(0,212,170,0.18)',
+            boxShadow: '0 4px 24px rgba(251,191,36,0.18)',
           }}>
-          <span style={{ color: '#00d4aa' }}>💬</span>
+          <span style={{ color: '#fbbf24' }}>💬</span>
           Sampaikan Pengaduan
         </div>
 
         {/* Pulse rings */}
         <div className="relative">
           <span className="fab-ring absolute inset-0 rounded-full pointer-events-none"
-            style={{ background: 'rgba(0,212,170,0.25)' }} />
+            style={{ background: 'rgba(251,191,36,0.25)' }} />
           <span className="fab-ring-2 absolute inset-0 rounded-full pointer-events-none"
-            style={{ background: 'rgba(0,180,216,0.2)' }} />
+            style={{ background: 'rgba(245,158,11,0.2)' }} />
 
           {/* Main button */}
           <Link href="/p/pengaduan" className="fab-btn flex items-center justify-center relative rounded-full shadow-2xl"
             style={{
               width: 68,
               height: 68,
-              background: 'linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%)',
-              boxShadow: '0 8px 32px rgba(0,212,170,0.55), 0 2px 8px rgba(0,0,0,0.3)',
-              color: '#0a1628',
+              background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+              boxShadow: '0 8px 32px rgba(251,191,36,0.55), 0 2px 8px rgba(0,0,0,0.3)',
+              color: '#ffffff',
               textDecoration: 'none',
             }}>
             <MessageSquare size={30} strokeWidth={2.2} />

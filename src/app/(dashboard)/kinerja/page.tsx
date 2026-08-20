@@ -104,16 +104,16 @@ export default function KinerjaPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#e2e8f0' }}>
-            <BarChart3 size={20} style={{ color: '#00d4aa' }} /> Kinerja & Serapan Anggaran
+          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#1e293b' }}>
+            <BarChart3 size={20} style={{ color: '#fbbf24' }} /> Kinerja & Serapan Anggaran
           </h2>
           <p className="text-sm mt-0.5" style={{ color: '#64748b' }}>Realisasi fisik dan keuangan per sub kegiatan — update berkala PPTK</p>
         </div>
         <div className="flex gap-2">
-          <button onClick={fetchData} className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm" style={{ background: 'rgba(0,212,170,0.08)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.2)' }}>
+          <button onClick={fetchData} className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm" style={{ background: 'rgba(251,191,36,0.08)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}>
             <RefreshCw size={14} /> Refresh
           </button>
-          <button onClick={openModal} className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+          <button onClick={openModal} className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
             <Plus size={16} /> Input Realisasi
           </button>
         </div>
@@ -122,7 +122,7 @@ export default function KinerjaPage() {
       {/* Summary Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Rata-rata Fisik', val: `${avgFisik.toFixed(1)}%`, icon: TrendingUp, color: '#00d4aa' },
+          { label: 'Rata-rata Fisik', val: `${avgFisik.toFixed(1)}%`, icon: TrendingUp, color: '#fbbf24' },
           { label: 'Serapan Anggaran', val: `${avgSerapan.toFixed(1)}%`, icon: BarChart3, color: '#818cf8' },
           { label: '⚠ Deviasi Tinggi', val: String(merah), icon: AlertTriangle, color: '#f87171' },
           { label: '✓ On Track', val: String(hijau), icon: CheckCircle, color: '#4ade80' },
@@ -159,7 +159,7 @@ export default function KinerjaPage() {
           <AlertTriangle size={18} style={{ color: '#f87171', flexShrink: 0, marginTop: 1 }} />
           <div>
             <p className="text-sm font-semibold" style={{ color: '#fca5a5' }}>Peringatan: {merah} Sub Kegiatan Deviasi &gt; 20%</p>
-            <p className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>
+            <p className="text-xs mt-0.5" style={{ color: '#64748b' }}>
               Sub kegiatan berikut memerlukan evaluasi segera. Sistem telah mencatat deviasi antara target dan realisasi fisik.
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function KinerjaPage() {
         <div className="overflow-x-auto">
           {loading ? (
             <div className="flex items-center justify-center h-40">
-              <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} />
+              <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} />
             </div>
           ) : (
             <table className="table-dark">
@@ -190,12 +190,12 @@ export default function KinerjaPage() {
                 {filtered.map(r => (
                   <tr key={r.id}>
                     <td>
-                      <p className="text-sm font-medium" style={{ color: '#e2e8f0' }}>{r.subKegiatanNama}</p>
+                      <p className="text-sm font-medium" style={{ color: '#1e293b' }}>{r.subKegiatanNama}</p>
                       <p className="text-xs" style={{ color: '#64748b' }}>{r.kegiatanNama}</p>
                       <p className="text-xs" style={{ color: '#475569' }}>{r.programNama?.slice(0, 30)}{r.programNama?.length > 30 ? '…' : ''}</p>
                     </td>
                     <td>
-                      <p className="text-sm" style={{ color: '#94a3b8' }}>{r.periode}</p>
+                      <p className="text-sm" style={{ color: '#64748b' }}>{r.periode}</p>
                       <p className="text-xs capitalize" style={{ color: '#64748b' }}>{r.tipePeriode}</p>
                     </td>
                     <td>
@@ -210,7 +210,7 @@ export default function KinerjaPage() {
                     </td>
                     <td>
                       {r.kendalaHambatan
-                        ? <p className="text-xs max-w-xs truncate" style={{ color: '#94a3b8' }} title={r.kendalaHambatan}>{r.kendalaHambatan}</p>
+                        ? <p className="text-xs max-w-xs truncate" style={{ color: '#64748b' }} title={r.kendalaHambatan}>{r.kendalaHambatan}</p>
                         : <p className="text-xs" style={{ color: '#334155' }}>-</p>}
                     </td>
                     <td>
@@ -223,7 +223,7 @@ export default function KinerjaPage() {
                       )}
                     </td>
                     <td>
-                      <button onClick={() => setDetailItem(r)} className="p-1.5 rounded hover:bg-white/10" style={{ color: '#00d4aa' }} title="Detail">
+                      <button onClick={() => setDetailItem(r)} className="p-1.5 rounded hover:bg-white/10" style={{ color: '#fbbf24' }} title="Detail">
                         <AlertCircle size={14} />
                       </button>
                     </td>
@@ -239,7 +239,7 @@ export default function KinerjaPage() {
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="Input Realisasi Fisik & Keuangan" size="lg">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Sub Kegiatan *</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Sub Kegiatan *</label>
             <select value={form.subKegiatanId} onChange={e => { set('subKegiatanId', e.target.value); const sk = subKList.find(s => s.id === e.target.value); if (sk) set('paguAnggaran', String(sk.paguAnggaran)); }} className="input-dark text-sm w-full">
               <option value="">-- Pilih Sub Kegiatan --</option>
               {subKList.map(s => <option key={s.id} value={s.id}>{s.kegiatanNama} — {s.nama}</option>)}
@@ -247,36 +247,36 @@ export default function KinerjaPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Tipe Periode *</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Tipe Periode *</label>
               <select value={form.tipePeriode} onChange={e => set('tipePeriode', e.target.value)} className="input-dark text-sm w-full">
                 <option value="bulanan">Bulanan</option>
                 <option value="triwulanan">Triwulanan</option>
               </select>
             </div>
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Periode *</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Periode *</label>
               <select value={form.periode} onChange={e => set('periode', e.target.value)} className="input-dark text-sm w-full">
                 {periodeList.map(p => <option key={p.value} value={p.value}>{p.label}</option>)}
               </select>
             </div>
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Realisasi Fisik (%) *</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Realisasi Fisik (%) *</label>
             <input type="number" min="0" max="100" value={form.realisasiFisikPersen} onChange={e => set('realisasiFisikPersen', e.target.value)} placeholder="0–100" className="input-dark text-sm w-full" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Pagu Anggaran (Rp)</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Pagu Anggaran (Rp)</label>
               <input type="number" value={form.paguAnggaran} onChange={e => set('paguAnggaran', e.target.value)} placeholder="0" className="input-dark text-sm w-full" />
             </div>
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Realisasi Keuangan (Rp)</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Realisasi Keuangan (Rp)</label>
               <input type="number" value={form.realisasiKeuangan} onChange={e => set('realisasiKeuangan', e.target.value)} placeholder="0" className="input-dark text-sm w-full" />
             </div>
           </div>
           {form.paguAnggaran && form.realisasiKeuangan && (
             <div className="p-3 rounded-lg" style={{ background: 'rgba(129,140,248,0.05)', border: '1px solid rgba(129,140,248,0.15)' }}>
-              <p className="text-xs" style={{ color: '#94a3b8' }}>Serapan Anggaran:
+              <p className="text-xs" style={{ color: '#64748b' }}>Serapan Anggaran:
                 <strong className="ml-1" style={{ color: '#818cf8' }}>
                   {((Number(form.realisasiKeuangan) / Number(form.paguAnggaran)) * 100).toFixed(1)}%
                 </strong>
@@ -284,18 +284,18 @@ export default function KinerjaPage() {
             </div>
           )}
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Deskripsi Realisasi</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Deskripsi Realisasi</label>
             <textarea value={form.deskripsiRealisasi} onChange={e => set('deskripsiRealisasi', e.target.value)} rows={2} className="input-dark text-sm w-full resize-none" placeholder="Progres pekerjaan yang telah dicapai..." />
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Kendala / Hambatan</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Kendala / Hambatan</label>
             <textarea value={form.kendalaHambatan} onChange={e => set('kendalaHambatan', e.target.value)} rows={2} className="input-dark text-sm w-full resize-none" placeholder="Kendala yang dihadapi di lapangan..." />
           </div>
           <div className="flex gap-3 pt-2">
-            <button onClick={() => setModalOpen(false)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
+            <button onClick={() => setModalOpen(false)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
             <button onClick={handleSave} disabled={saving || !form.subKegiatanId || !form.periode}
               className="flex-1 py-2.5 rounded-lg text-sm font-semibold disabled:opacity-50"
-              style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+              style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
               {saving ? 'Menyimpan...' : 'Simpan Realisasi'}
             </button>
           </div>
@@ -310,27 +310,27 @@ export default function KinerjaPage() {
               {[['Sub Kegiatan', detailItem.subKegiatanNama], ['Kegiatan', detailItem.kegiatanNama], ['Program', detailItem.programNama], ['Periode', detailItem.periode]].map(([k, v]) => (
                 <div key={k} className="p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <p className="text-xs mb-1" style={{ color: '#64748b' }}>{k}</p>
-                  <p className="font-medium text-xs" style={{ color: '#e2e8f0' }}>{v}</p>
+                  <p className="font-medium text-xs" style={{ color: '#1e293b' }}>{v}</p>
                 </div>
               ))}
             </div>
-            <div className="p-3 rounded-lg" style={{ background: 'rgba(0,212,170,0.05)', border: '1px solid rgba(0,212,170,0.1)' }}>
+            <div className="p-3 rounded-lg" style={{ background: 'rgba(251,191,36,0.05)', border: '1px solid rgba(251,191,36,0.1)' }}>
               <ProgressBar value={detailItem.realisasiFisikPersen} label="Realisasi Fisik" />
               <div className="mt-2 grid grid-cols-2 gap-2">
-                <p className="text-xs" style={{ color: '#94a3b8' }}>Serapan: <strong style={{ color: '#818cf8' }}>{detailItem.serapanPersen.toFixed(1)}%</strong></p>
-                <p className="text-xs" style={{ color: '#94a3b8' }}>Pagu: <strong style={{ color: '#f59e0b' }}>{fmtRp(detailItem.paguAnggaran)}</strong></p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Serapan: <strong style={{ color: '#818cf8' }}>{detailItem.serapanPersen.toFixed(1)}%</strong></p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Pagu: <strong style={{ color: '#f59e0b' }}>{fmtRp(detailItem.paguAnggaran)}</strong></p>
               </div>
             </div>
             {detailItem.kendalaHambatan && (
               <div className="p-3 rounded-lg" style={{ background: 'rgba(248,113,113,0.04)', border: '1px solid rgba(248,113,113,0.15)' }}>
                 <p className="text-xs font-medium mb-1" style={{ color: '#f87171' }}>Kendala / Hambatan</p>
-                <p className="text-xs" style={{ color: '#94a3b8' }}>{detailItem.kendalaHambatan}</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>{detailItem.kendalaHambatan}</p>
               </div>
             )}
             {detailItem.deskripsiRealisasi && (
               <div className="p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                <p className="text-xs font-medium mb-1" style={{ color: '#00d4aa' }}>Deskripsi Realisasi</p>
-                <p className="text-xs" style={{ color: '#94a3b8' }}>{detailItem.deskripsiRealisasi}</p>
+                <p className="text-xs font-medium mb-1" style={{ color: '#fbbf24' }}>Deskripsi Realisasi</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>{detailItem.deskripsiRealisasi}</p>
               </div>
             )}
           </div>

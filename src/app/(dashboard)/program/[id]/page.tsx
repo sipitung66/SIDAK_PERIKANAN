@@ -199,7 +199,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
 
   if (!program) return (
     <div className="flex flex-col items-center justify-center h-64 gap-3">
-      <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} />
+      <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} />
       <p className="text-xs" style={{ color: '#64748b' }}>Memuat data program...</p>
     </div>
   );
@@ -219,7 +219,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
           ) : (
             <AlertTriangle size={16} style={{ color: '#f87171' }} />
           )}
-          <p className="text-xs font-medium" style={{ color: '#e2e8f0' }}>{toast.message}</p>
+          <p className="text-xs font-medium" style={{ color: '#1e293b' }}>{toast.message}</p>
         </div>
       )}
 
@@ -227,20 +227,20 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
         <button onClick={() => router.back()} className="p-2 rounded-lg hover:bg-white/10 mt-1 transition-colors" style={{ color: '#64748b' }}><ArrowLeft size={18} /></button>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            <span className="font-mono text-xs px-2 py-0.5 rounded" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa' }}>{program.kode}</span>
+            <span className="font-mono text-xs px-2 py-0.5 rounded" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24' }}>{program.kode}</span>
             <Badge variant={program.status as 'aktif' | 'tidak_aktif' | 'selesai'}>{program.status}</Badge>
           </div>
-          <h2 className="text-xl font-bold" style={{ color: '#e2e8f0' }}>{program.nama}</h2>
+          <h2 className="text-xl font-bold" style={{ color: '#1e293b' }}>{program.nama}</h2>
           {program.deskripsi && <p className="text-sm mt-1" style={{ color: '#64748b' }}>{program.deskripsi}</p>}
           <div className="flex flex-wrap gap-4 mt-2 text-xs" style={{ color: '#475569' }}>
-            <span>Tahun: <strong style={{ color: '#94a3b8' }}>{program.tahunAnggaran}</strong></span>
-            <span>Anggaran: <strong style={{ color: '#94a3b8' }}>{fmtRp(program.totalAnggaran)}</strong></span>
-            <span>Kegiatan: <strong style={{ color: '#94a3b8' }}>{kegiatanList.length}</strong></span>
+            <span>Tahun: <strong style={{ color: '#64748b' }}>{program.tahunAnggaran}</strong></span>
+            <span>Anggaran: <strong style={{ color: '#64748b' }}>{fmtRp(program.totalAnggaran)}</strong></span>
+            <span>Kegiatan: <strong style={{ color: '#64748b' }}>{kegiatanList.length}</strong></span>
           </div>
         </div>
         <button onClick={() => { setEditK(null); setKForm({ nama: '', deskripsi: '', status: 'aktif' }); setKModal(true); }}
           disabled={saving} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium disabled:opacity-60 transition-opacity"
-          style={{ background: 'rgba(0,180,216,0.1)', color: '#00b4d8', border: '1px solid rgba(0,180,216,0.2)' }}>
+          style={{ background: 'rgba(245,158,11,0.1)', color: '#f59e0b', border: '1px solid rgba(245,158,11,0.2)' }}>
           <Plus size={15} /> Kegiatan
         </button>
       </div>
@@ -257,11 +257,11 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
               setExpandedK(prev => ({ ...prev, [k.id]: !prev[k.id] }))
             }
           >
-            <div className="p-2 rounded-lg flex-shrink-0" style={{ background: 'rgba(0,180,216,0.12)' }}>
-              <ListTree size={16} style={{ color: '#00b4d8' }} />
+            <div className="p-2 rounded-lg flex-shrink-0" style={{ background: 'rgba(245,158,11,0.12)' }}>
+              <ListTree size={16} style={{ color: '#f59e0b' }} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-sm" style={{ color: '#e2e8f0' }}>{k.nama}</p>
+              <p className="font-semibold text-sm" style={{ color: '#1e293b' }}>{k.nama}</p>
               {k.deskripsi && <p className="text-xs truncate mt-0.5" style={{ color: '#64748b' }}>{k.deskripsi}</p>}
               <div className="flex flex-wrap items-center gap-3 mt-0.5 text-xs" style={{ color: '#475569' }}>
                 <span>{(skMap[k.id] || []).length} sub kegiatan</span>
@@ -270,9 +270,9 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
             </div>
             <div className="flex items-center gap-1">
               <button onClick={e => { e.stopPropagation(); setActiveKId(k.id); setEditSK(null); setSkForm({ nama: '', deskripsi: '', targetPenerima: 0, anggaranKegiatan: 0, status: 'aktif' }); setSkModal(true); }}
-                className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#00d4aa' }} title="Tambah Sub Kegiatan"><Plus size={14} /></button>
+                className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#fbbf24' }} title="Tambah Sub Kegiatan"><Plus size={14} /></button>
               <button onClick={e => { e.stopPropagation(); setEditK(k); setKForm({ nama: k.nama, deskripsi: k.deskripsi || '', status: k.status }); setKModal(true); }}
-                className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#94a3b8' }} title="Edit"><Edit2 size={14} /></button>
+                className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#64748b' }} title="Edit"><Edit2 size={14} /></button>
               <button onClick={e => { e.stopPropagation(); void deleteK(k.id); }} disabled={saving}
                 className="p-1.5 rounded hover:bg-red-500/20 transition-colors disabled:opacity-50" style={{ color: '#f87171' }} title="Hapus"><Trash2 size={14} /></button>
               {expandedK[k.id] ? <ChevronDown size={16} style={{ color: '#64748b' }} /> : <ChevronRight size={16} style={{ color: '#64748b' }} />}
@@ -289,12 +289,12 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                 const bis = biMap[sk.id] || [];
                 const mainInd = inds[0];
                 return (
-                  <div key={sk.id} className="ml-4 border-l-2 pl-4 py-3 mr-4 mb-1 mt-1" style={{ borderColor: 'rgba(0,212,170,0.2)' }}>
+                  <div key={sk.id} className="ml-4 border-l-2 pl-4 py-3 mr-4 mb-1 mt-1" style={{ borderColor: 'rgba(251,191,36,0.2)' }}>
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <GitBranch size={12} style={{ color: '#00d4aa' }} />
-                          <p className="font-medium text-sm" style={{ color: '#e2e8f0' }}>{sk.nama}</p>
+                          <GitBranch size={12} style={{ color: '#fbbf24' }} />
+                          <p className="font-medium text-sm" style={{ color: '#1e293b' }}>{sk.nama}</p>
                         </div>
                         <p className="text-xs mt-0.5" style={{ color: '#64748b' }}>
                           Target: {sk.targetPenerima ?? 0} penerima · {fmtRp(sk.anggaranKegiatan)}
@@ -303,7 +303,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                           <div className="mt-2 max-w-xs">
                             <div className="flex justify-between text-xs mb-1">
                               <span style={{ color: '#64748b' }}>{mainInd.nama}</span>
-                              <span style={{ color: '#00d4aa' }}>Target: {mainInd.target} {mainInd.satuan}</span>
+                              <span style={{ color: '#fbbf24' }}>Target: {mainInd.target} {mainInd.satuan}</span>
                             </div>
                             <ProgressBar value={0} showPercent={false} size="sm" />
                           </div>
@@ -315,7 +315,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                         <button onClick={() => { setActiveSKId(sk.id); setBiForm({ nama: '', satuan: 'paket', estimasiNilai: 0 }); setBiModal(true); }}
                           className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#818cf8' }} title="Tambah Bentuk Intervensi"><Package size={12} /></button>
                         <button onClick={() => { setActiveKId(sk.kegiatanId); setEditSK(sk); setSkForm({ nama: sk.nama, deskripsi: sk.deskripsi || '', targetPenerima: sk.targetPenerima, anggaranKegiatan: sk.anggaranKegiatan, status: sk.status }); setSkModal(true); }}
-                          className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#94a3b8' }}><Edit2 size={12} /></button>
+                          className="p-1.5 rounded hover:bg-white/10 transition-colors" style={{ color: '#64748b' }}><Edit2 size={12} /></button>
                         <button onClick={() => void deleteSK(sk)} disabled={saving}
                           className="p-1.5 rounded hover:bg-red-500/20 transition-colors disabled:opacity-50" style={{ color: '#f87171' }}><Trash2 size={12} /></button>
                       </div>
@@ -324,8 +324,8 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {bis.map(bi => (
                           <span key={bi.id} className="text-xs px-2 py-0.5 rounded-full flex items-center gap-1"
-                            style={{ background: 'rgba(0,212,170,0.08)', border: '1px solid rgba(0,212,170,0.15)', color: '#94a3b8' }}>
-                            <Package size={10} style={{ color: '#00d4aa' }} /> {bi.nama}
+                            style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.15)', color: '#64748b' }}>
+                            <Package size={10} style={{ color: '#fbbf24' }} /> {bi.nama}
                           </span>
                         ))}
                       </div>
@@ -340,7 +340,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
                         {inds.map(ind => (
                           <div key={ind.id} className="flex items-center justify-between text-xs p-2 rounded"
                             style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.1)' }}>
-                            <span style={{ color: '#94a3b8' }}>{ind.nama}</span>
+                            <span style={{ color: '#64748b' }}>{ind.nama}</span>
                             <span style={{ color: '#f59e0b' }}>Target: {ind.target} {ind.satuan}</span>
                           </div>
                         ))}
@@ -356,70 +356,70 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
 
       <Modal isOpen={kModal} onClose={() => !saving && setKModal(false)} title={editK ? 'Edit Kegiatan' : 'Tambah Kegiatan'} size="sm">
         <div className="space-y-4">
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Kegiatan *</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Kegiatan *</label>
             <input value={kForm.nama} onChange={e => setKForm(f => ({ ...f, nama: e.target.value }))} className="input-dark text-sm" placeholder="Nama kegiatan..." /></div>
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Deskripsi</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Deskripsi</label>
             <input value={kForm.deskripsi} onChange={e => setKForm(f => ({ ...f, deskripsi: e.target.value }))} className="input-dark text-sm" placeholder="Deskripsi (opsional)..." /></div>
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Status</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Status</label>
             <select value={kForm.status} onChange={e => setKForm(f => ({ ...f, status: e.target.value }))} className="input-dark text-sm">
               <option value="aktif">Aktif</option><option value="tidak_aktif">Tidak Aktif</option><option value="selesai">Selesai</option>
             </select></div>
           <div className="flex gap-3">
-            <button onClick={() => setKModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={() => void saveK()} disabled={!kForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
+            <button onClick={() => setKModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={() => void saveK()} disabled={!kForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
           </div>
         </div>
       </Modal>
 
       <Modal isOpen={skModal} onClose={() => !saving && setSkModal(false)} title={editSK ? 'Edit Sub Kegiatan' : 'Tambah Sub Kegiatan'} size="sm">
         <div className="space-y-4">
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Sub Kegiatan *</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Sub Kegiatan *</label>
             <input value={skForm.nama} onChange={e => setSkForm(f => ({ ...f, nama: e.target.value }))} className="input-dark text-sm" placeholder="Nama sub kegiatan..." /></div>
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Deskripsi</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Deskripsi</label>
             <input value={skForm.deskripsi} onChange={e => setSkForm(f => ({ ...f, deskripsi: e.target.value }))} className="input-dark text-sm" placeholder="Deskripsi (opsional)..." /></div>
           <div className="grid grid-cols-2 gap-3">
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Target Penerima</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Target Penerima</label>
               <input type="number" value={skForm.targetPenerima || ''} onChange={e => setSkForm(f => ({ ...f, targetPenerima: Number(e.target.value) }))} className="input-dark text-sm" /></div>
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Anggaran (Rp)</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Anggaran (Rp)</label>
               <input type="number" value={skForm.anggaranKegiatan || ''} onChange={e => setSkForm(f => ({ ...f, anggaranKegiatan: Number(e.target.value) }))} className="input-dark text-sm" /></div>
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setSkModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={() => void saveSK()} disabled={!skForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
+            <button onClick={() => setSkModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={() => void saveSK()} disabled={!skForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
           </div>
         </div>
       </Modal>
 
       <Modal isOpen={indModal} onClose={() => !saving && setIndModal(false)} title="Tambah Indikator Capaian" size="sm">
         <div className="space-y-4">
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Indikator *</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Indikator *</label>
             <input value={indForm.nama} onChange={e => setIndForm(f => ({ ...f, nama: e.target.value }))} className="input-dark text-sm" placeholder="Peningkatan kapasitas produksi..." /></div>
           <div className="grid grid-cols-2 gap-3">
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Satuan</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Satuan</label>
               <input value={indForm.satuan} onChange={e => setIndForm(f => ({ ...f, satuan: e.target.value }))} className="input-dark text-sm" placeholder="ton/tahun..." /></div>
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Target</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Target</label>
               <input type="number" value={indForm.target || ''} onChange={e => setIndForm(f => ({ ...f, target: Number(e.target.value) }))} className="input-dark text-sm" /></div>
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setIndModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={() => void saveInd()} disabled={!indForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
+            <button onClick={() => setIndModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={() => void saveInd()} disabled={!indForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
           </div>
         </div>
       </Modal>
 
       <Modal isOpen={biModal} onClose={() => !saving && setBiModal(false)} title="Tambah Bentuk Intervensi" size="sm">
         <div className="space-y-4">
-          <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Bantuan *</label>
+          <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Bantuan *</label>
             <input value={biForm.nama} onChange={e => setBiForm(f => ({ ...f, nama: e.target.value }))} className="input-dark text-sm" placeholder="Bantuan bibit ikan, alat tangkap..." /></div>
           <div className="grid grid-cols-2 gap-3">
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Satuan</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Satuan</label>
               <input value={biForm.satuan} onChange={e => setBiForm(f => ({ ...f, satuan: e.target.value }))} className="input-dark text-sm" placeholder="paket, unit..." /></div>
-            <div><label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Estimasi Nilai (Rp)</label>
+            <div><label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Estimasi Nilai (Rp)</label>
               <input type="number" value={biForm.estimasiNilai || ''} onChange={e => setBiForm(f => ({ ...f, estimasiNilai: Number(e.target.value) }))} className="input-dark text-sm" /></div>
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setBiModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={() => void saveBi()} disabled={!biForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
+            <button onClick={() => setBiModal(false)} disabled={saving} className="flex-1 py-2 rounded-lg text-sm disabled:opacity-50" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={() => void saveBi()} disabled={!biForm.nama.trim() || saving} className="flex-1 py-2 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>{saving ? 'Menyimpan...' : 'Simpan'}</button>
           </div>
         </div>
       </Modal>

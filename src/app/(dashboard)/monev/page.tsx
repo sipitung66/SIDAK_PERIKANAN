@@ -119,14 +119,14 @@ export default function MonevPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#e2e8f0' }}>
-            <ClipboardList size={20} style={{ color: '#00d4aa' }} /> Data Monev Penerima Bantuan
+          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#1e293b' }}>
+            <ClipboardList size={20} style={{ color: '#fbbf24' }} /> Data Monev Penerima Bantuan
           </h2>
           <p className="text-sm mt-0.5" style={{ color: '#64748b' }}>Total {total} penerima terdaftar</p>
         </div>
         <button onClick={() => router.push('/monev/tambah')}
           className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold"
-          style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+          style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
           <Plus size={16} /> Input Monev
         </button>
       </div>
@@ -170,7 +170,7 @@ export default function MonevPage() {
             {programs.map(p => <option key={p.id} value={p.id}>{p.nama?.slice(0, 35)}{(p.nama?.length || 0) > 35 ? '…' : ''}</option>)}
           </select>
           <button onClick={fetchData} className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm"
-            style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.2)' }}>
+            style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}>
             <Filter size={14} /> Filter
           </button>
         </div>
@@ -181,7 +181,7 @@ export default function MonevPage() {
         <div className="overflow-x-auto">
           {loading ? (
             <div className="flex items-center justify-center h-40">
-              <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} />
+              <div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} />
             </div>
           ) : (
             <table className="table-dark">
@@ -205,15 +205,15 @@ export default function MonevPage() {
                 {data.map(m => (
                   <tr key={m.id}>
                     <td>
-                      <p className="font-medium text-sm" style={{ color: '#e2e8f0' }}>{m.namaPenerima}</p>
+                      <p className="font-medium text-sm" style={{ color: '#1e293b' }}>{m.namaPenerima}</p>
                       <p className="text-xs" style={{ color: '#64748b' }}>{m.kelompok || '-'}</p>
                     </td>
                     <td>
-                      <p className="text-sm" style={{ color: '#94a3b8' }}>{m.desaNama}</p>
+                      <p className="text-sm" style={{ color: '#64748b' }}>{m.desaNama}</p>
                       <p className="text-xs" style={{ color: '#64748b' }}>{m.kecamatanNama}, {m.kabupatenNama}</p>
                     </td>
                     <td>
-                      <p className="text-xs font-medium" style={{ color: '#94a3b8' }}>{m.programNama?.slice(0, 28)}{(m.programNama?.length || 0) > 28 ? '…' : ''}</p>
+                      <p className="text-xs font-medium" style={{ color: '#64748b' }}>{m.programNama?.slice(0, 28)}{(m.programNama?.length || 0) > 28 ? '…' : ''}</p>
                       <p className="text-xs" style={{ color: '#64748b' }}>{(m as {kegiatanNama?: string}).kegiatanNama?.slice(0, 26)}{((m as {kegiatanNama?: string}).kegiatanNama?.length || 0) > 26 ? '…' : ''}</p>
                       <p className="text-xs" style={{ color: '#475569' }}>{(m as {subKegiatanNama?: string}).subKegiatanNama?.slice(0, 26)}{((m as {subKegiatanNama?: string}).subKegiatanNama?.length || 0) > 26 ? '…' : ''}</p>
                     </td>
@@ -223,7 +223,7 @@ export default function MonevPage() {
                       </span>
                     </td>
                     <td>
-                      <p className="text-xs" style={{ color: '#94a3b8' }}>{m.kapasitasSebelum} → <strong style={{ color: '#00d4aa' }}>{m.kapasitasSesudah}</strong></p>
+                      <p className="text-xs" style={{ color: '#64748b' }}>{m.kapasitasSebelum} → <strong style={{ color: '#fbbf24' }}>{m.kapasitasSesudah}</strong></p>
                       <p className="text-xs" style={{ color: '#475569' }}>{m.satuanKapasitas}</p>
                     </td>
                     <td>
@@ -237,10 +237,10 @@ export default function MonevPage() {
                     <td><Badge variant={m.status}>{m.status}</Badge></td>
                     <td>
                       <div className="flex items-center justify-center gap-1">
-                        <button onClick={() => openDetail(m)} title="Detail" className="p-1.5 rounded hover:bg-white/10" style={{ color: '#00d4aa' }}>
+                        <button onClick={() => openDetail(m)} title="Detail" className="p-1.5 rounded hover:bg-white/10" style={{ color: '#fbbf24' }}>
                           <Eye size={14} />
                         </button>
-                        <button onClick={() => router.push(`/monev/tambah?edit=${m.id}`)} title="Edit" className="p-1.5 rounded hover:bg-white/10" style={{ color: '#94a3b8' }}>
+                        <button onClick={() => router.push(`/monev/tambah?edit=${m.id}`)} title="Edit" className="p-1.5 rounded hover:bg-white/10" style={{ color: '#64748b' }}>
                           <Edit2 size={14} />
                         </button>
                         {m.status === 'draft' && (
@@ -277,8 +277,8 @@ export default function MonevPage() {
                 <button key={p} onClick={() => setPage(p)}
                   className="w-7 h-7 rounded text-xs font-medium transition-colors"
                   style={{
-                    background: p === page ? 'linear-gradient(135deg, #00d4aa, #00b4d8)' : 'rgba(255,255,255,0.05)',
-                    color: p === page ? '#0a1628' : '#94a3b8',
+                    background: p === page ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' : 'rgba(0,0,0,0.03)',
+                    color: p === page ? '#ffffff' : '#64748b',
                   }}>
                   {p}
                 </button>
@@ -294,23 +294,23 @@ export default function MonevPage() {
           <div className="space-y-4 text-sm">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#00d4aa' }}>Data Penerima</p>
+                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#fbbf24' }}>Data Penerima</p>
                 <dl className="space-y-1">
                   {[['Nama', viewItem.namaPenerima], ['NIK', viewItem.nikPenerima], ['Kelompok', viewItem.kelompok || '-'], ['No HP', (viewItem as {noTelp?: string}).noTelp || '-']].map(([k, v]) => (
                     <div key={k} className="flex gap-2">
                       <dt style={{ color: '#64748b', width: 80, flexShrink: 0 }}>{k}</dt>
-                      <dd style={{ color: '#e2e8f0' }}>{v}</dd>
+                      <dd style={{ color: '#1e293b' }}>{v}</dd>
                     </div>
                   ))}
                 </dl>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#00d4aa' }}>Wilayah</p>
+                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#fbbf24' }}>Wilayah</p>
                 <dl className="space-y-1">
                   {[['Kabupaten', viewItem.kabupatenNama], ['Kecamatan', viewItem.kecamatanNama], ['Desa', viewItem.desaNama], ['Alamat', (viewItem as {alamatLengkap?: string}).alamatLengkap || '-']].map(([k, v]) => (
                     <div key={k} className="flex gap-2">
                       <dt style={{ color: '#64748b', width: 80, flexShrink: 0 }}>{k}</dt>
-                      <dd style={{ color: '#e2e8f0' }}>{v}</dd>
+                      <dd style={{ color: '#1e293b' }}>{v}</dd>
                     </div>
                   ))}
                 </dl>
@@ -318,16 +318,16 @@ export default function MonevPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#00d4aa' }}>Kapasitas Produksi</p>
-                <div className="p-3 rounded-lg" style={{ background: 'rgba(0,212,170,0.05)', border: '1px solid rgba(0,212,170,0.1)' }}>
-                  <p style={{ color: '#94a3b8' }}>Sebelum: <strong style={{ color: '#e2e8f0' }}>{viewItem.kapasitasSebelum} {viewItem.satuanKapasitas}</strong></p>
-                  <p style={{ color: '#94a3b8' }}>Sesudah: <strong style={{ color: '#00d4aa' }}>{viewItem.kapasitasSesudah} {viewItem.satuanKapasitas}</strong></p>
-                  <p style={{ color: '#94a3b8' }}>Peningkatan: <strong style={{ color: '#4ade80' }}>+{viewItem.kapasitasSesudah - viewItem.kapasitasSebelum} {viewItem.satuanKapasitas}</strong></p>
+                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#fbbf24' }}>Kapasitas Produksi</p>
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(251,191,36,0.05)', border: '1px solid rgba(251,191,36,0.1)' }}>
+                  <p style={{ color: '#64748b' }}>Sebelum: <strong style={{ color: '#1e293b' }}>{viewItem.kapasitasSebelum} {viewItem.satuanKapasitas}</strong></p>
+                  <p style={{ color: '#64748b' }}>Sesudah: <strong style={{ color: '#fbbf24' }}>{viewItem.kapasitasSesudah} {viewItem.satuanKapasitas}</strong></p>
+                  <p style={{ color: '#64748b' }}>Peningkatan: <strong style={{ color: '#4ade80' }}>+{viewItem.kapasitasSesudah - viewItem.kapasitasSebelum} {viewItem.satuanKapasitas}</strong></p>
                 </div>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#00d4aa' }}>Capaian & Status</p>
-                <div className="p-3 rounded-lg" style={{ background: 'rgba(0,212,170,0.05)', border: '1px solid rgba(0,212,170,0.1)' }}>
+                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#fbbf24' }}>Capaian & Status</p>
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(251,191,36,0.05)', border: '1px solid rgba(251,191,36,0.1)' }}>
                   <ProgressBar value={viewItem.realisasiCapaian} label="Realisasi Capaian" />
                   <div className="mt-2"><Badge variant={viewItem.status}>{viewItem.status}</Badge></div>
                 </div>
@@ -335,12 +335,12 @@ export default function MonevPage() {
             </div>
             {(viewItem as {sarpras?: {nama: string; jumlah: number; satuan: string; kondisi: string}[]}).sarpras && (viewItem as {sarpras?: {nama: string; jumlah: number; satuan: string; kondisi: string}[]}).sarpras!.length > 0 && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#00d4aa' }}>Sarpras Pendukung</p>
+                <p className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: '#fbbf24' }}>Sarpras Pendukung</p>
                 <div className="space-y-1">
                   {(viewItem as {sarpras: {nama: string; jumlah: number; satuan: string; kondisi: string}[]}).sarpras.map((s, i) => (
                     <div key={i} className="flex items-center justify-between p-2 rounded" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                      <span style={{ color: '#94a3b8' }}>{s.nama}</span>
-                      <span style={{ color: '#e2e8f0' }}>{s.jumlah} {s.satuan} — <span style={{ color: s.kondisi === 'baik' ? '#4ade80' : '#f59e0b' }}>{s.kondisi}</span></span>
+                      <span style={{ color: '#64748b' }}>{s.nama}</span>
+                      <span style={{ color: '#1e293b' }}>{s.jumlah} {s.satuan} — <span style={{ color: s.kondisi === 'baik' ? '#4ade80' : '#f59e0b' }}>{s.kondisi}</span></span>
                     </div>
                   ))}
                 </div>
@@ -348,8 +348,8 @@ export default function MonevPage() {
             )}
             {(viewItem as {catatan?: string}).catatan && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: '#00d4aa' }}>Catatan</p>
-                <p className="text-sm p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.03)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: '#fbbf24' }}>Catatan</p>
+                <p className="text-sm p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.03)', color: '#64748b', border: '1px solid rgba(255,255,255,0.06)' }}>
                   {(viewItem as {catatan: string}).catatan}
                 </p>
               </div>
@@ -361,16 +361,16 @@ export default function MonevPage() {
       {/* Verifikasi Modal */}
       <Modal isOpen={!!verifItem} onClose={() => setVerifItem(null)} title={verifStatus === 'diverifikasi' ? 'Verifikasi Data' : 'Tolak Data'} size="sm">
         <div className="space-y-4">
-          <p className="text-sm" style={{ color: '#94a3b8' }}>
+          <p className="text-sm" style={{ color: '#64748b' }}>
             {verifStatus === 'diverifikasi' ? 'Setujui dan verifikasi data monev ini?' : 'Tolak data monev ini?'}
-            {verifItem && <strong style={{ color: '#e2e8f0' }}> {verifItem.namaPenerima}</strong>}
+            {verifItem && <strong style={{ color: '#1e293b' }}> {verifItem.namaPenerima}</strong>}
           </p>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Catatan Verifikator (opsional)</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Catatan Verifikator (opsional)</label>
             <textarea value={verifNote} onChange={e => setVerifNote(e.target.value)} rows={3} className="input-dark text-sm resize-none" placeholder="Tambahkan catatan..." />
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setVerifItem(null)} className="flex-1 py-2 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
+            <button onClick={() => setVerifItem(null)} className="flex-1 py-2 rounded-lg text-sm" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
             <button onClick={handleVerif} className="flex-1 py-2 rounded-lg text-sm font-semibold"
               style={{ background: verifStatus === 'diverifikasi' ? 'rgba(74,222,128,0.2)' : 'rgba(248,113,113,0.2)', color: verifStatus === 'diverifikasi' ? '#4ade80' : '#f87171', border: `1px solid ${verifStatus === 'diverifikasi' ? 'rgba(74,222,128,0.3)' : 'rgba(248,113,113,0.3)'}` }}>
               {verifStatus === 'diverifikasi' ? 'Verifikasi' : 'Tolak'}
@@ -381,9 +381,9 @@ export default function MonevPage() {
 
       {/* Delete Modal */}
       <Modal isOpen={!!deleteId} onClose={() => setDeleteId(null)} title="Konfirmasi Hapus" size="sm">
-        <p className="text-sm mb-6" style={{ color: '#94a3b8' }}>Yakin hapus data monev ini? Tindakan ini tidak dapat dibatalkan.</p>
+        <p className="text-sm mb-6" style={{ color: '#64748b' }}>Yakin hapus data monev ini? Tindakan ini tidak dapat dibatalkan.</p>
         <div className="flex gap-3">
-          <button onClick={() => setDeleteId(null)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
+          <button onClick={() => setDeleteId(null)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
           <button onClick={handleDelete} className="flex-1 py-2.5 rounded-lg text-sm font-semibold" style={{ background: 'rgba(248,113,113,0.2)', color: '#f87171', border: '1px solid rgba(248,113,113,0.3)' }}>Hapus</button>
         </div>
       </Modal>
