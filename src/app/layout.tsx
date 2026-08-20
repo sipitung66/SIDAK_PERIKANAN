@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: 'SIDAK PERIKANAN - Sistem Informasi Monitoring dan Evaluasi',
   description: 'Sistem Monitoring dan Evaluasi Program Dinas Kelautan dan Perikanan',
   icons: {
-    icon: '/logo-sidak.svg',
-    shortcut: '/logo-sidak.svg',
-    apple: '/logo-sidak.svg',
+    icon: '/logo-sidak.svg?v=20260822',
+    shortcut: '/logo-sidak.svg?v=20260822',
+    apple: '/logo-sidak.svg?v=20260822',
   },
   applicationName: 'SIDAK Perikanan',
 };

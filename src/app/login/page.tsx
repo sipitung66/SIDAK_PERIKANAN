@@ -93,7 +93,7 @@ export default function LoginPage() {
                 boxShadow: '0 8px 24px rgba(0, 212, 170, 0.2)',
                 border: '1px solid rgba(0,212,170,0.18)'
               }}>
-                <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-24 h-24 object-contain" />
+                <img src="/logo-sidak.svg?v=20260822" alt="SIDAK Logo" className="w-24 h-24 object-contain" />
               </div>
             </div>
             <h1 className="text-2xl font-bold mb-1" style={{

@@ -73,7 +73,7 @@ function SidebarContent({
           {/* Lambang */}
           <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center p-1"
             style={{ background: 'linear-gradient(135deg, rgba(0,212,170,0.12), rgba(0,180,216,0.12))', border: '2px solid rgba(0,212,170,0.25)' }}>
-            <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-full h-full object-contain" />
+            <img src="/logo-sidak.svg?v=20260822" alt="SIDAK Logo" className="w-full h-full object-contain" />
           </div>
           {!collapsed && (
             <div className="min-w-0">

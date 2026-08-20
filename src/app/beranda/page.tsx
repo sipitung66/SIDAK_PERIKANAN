@@ -45,7 +45,7 @@ export default function BerandaPage() {
         <div className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 p-1"
             style={{ background: 'linear-gradient(135deg, rgba(0,212,170,0.12), rgba(0,180,216,0.12))', border: '2px solid rgba(0,212,170,0.25)' }}>
-            <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-full h-full object-contain" />
+            <img src="/logo-sidak.svg?v=20260822" alt="SIDAK Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <p className="font-extrabold text-sm leading-tight"
