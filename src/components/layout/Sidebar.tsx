@@ -4,16 +4,24 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
-  LayoutDashboard, FolderTree, ClipboardList, Map, Users,
-  ChevronLeft, ChevronRight, Menu, X, Fish, Anchor, BarChart3,
-  Settings, FileText, Activity, Circle, MessageSquare
+  LayoutDashboard, FolderTree, ClipboardList, Map,
+  ChevronLeft, ChevronRight, Menu, X, Anchor, BarChart3,
+  Settings, FileText, Circle, MessageSquare, Newspaper
 } from 'lucide-react';
 import type { UserRole } from '@/types';
 
 interface SidebarProps { userRole: UserRole; userName: string; userEmail: string; }
 
+interface SidebarContentProps extends SidebarProps {
+  collapsed: boolean;
+  mobileOpen: boolean;
+  setCollapsed: (value: boolean) => void;
+  setMobileOpen: (value: boolean) => void;
+}
+
 const navItems = [
   { href: '/dashboard',  label: 'Beranda',             sublabel: 'Dashboard Utama',       icon: LayoutDashboard, roles: ['super_admin', 'admin_program', 'admin_dinas', 'petugas_lapangan', 'pimpinan'] },
+  { href: '/berita',     label: 'Portal Berita',        sublabel: 'Posting & Publikasi',   icon: Newspaper,       roles: ['super_admin', 'admin_program', 'admin_dinas', 'petugas_lapangan', 'pimpinan'] },
   { href: '/peta',       label: 'Peta Perikanan',       sublabel: 'Peta Interaktif',       icon: Map,             roles: ['super_admin', 'admin_program', 'admin_dinas', 'petugas_lapangan', 'pimpinan'] },
   { href: '/program',    label: 'Program',              sublabel: 'Kegiatan & Anggaran',   icon: FolderTree,      roles: ['super_admin', 'admin_program', 'admin_dinas'] },
   { href: '/monev',      label: 'Input Monev',          sublabel: 'Data Lapangan',         icon: ClipboardList,   roles: ['super_admin', 'admin_program', 'admin_dinas', 'petugas_lapangan'] },
@@ -42,25 +50,30 @@ const roleLabels: Record<UserRole, string> = {
   pimpinan: 'Pimpinan',
 };
 
-export function Sidebar({ userRole, userName, userEmail }: SidebarProps) {
+function SidebarContent({
+  collapsed,
+  mobileOpen,
+  userRole,
+  userName,
+  userEmail,
+  setCollapsed,
+  setMobileOpen,
+}: SidebarContentProps) {
   const pathname = usePathname();
-  const [collapsed, setCollapsed] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   const allNavItems = [...navItems, ...adminNavItems].filter(item =>
     !item.roles || item.roles.includes(userRole)
   );
   const isActive = (href: string) => href === '/dashboard' ? pathname === '/dashboard' : pathname.startsWith(href);
 
-  const SidebarContent = () => (
+  return (
     <div className="flex flex-col h-full">
       {/* Logo / Instansi */}
       <div className="flex-shrink-0 px-4 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <div className={`flex items-center gap-3 ${collapsed ? 'justify-center' : ''}`}>
           {/* Lambang */}
-          <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #1a4a8a, #0e7490)', border: '2px solid rgba(0,212,170,0.4)' }}>
-            <Anchor size={18} style={{ color: '#00d4aa' }} />
+          <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center p-1"
+            style={{ background: 'linear-gradient(135deg, rgba(0,212,170,0.12), rgba(0,180,216,0.12))', border: '2px solid rgba(0,212,170,0.25)' }}>
+            <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-full h-full object-contain" />
           </div>
           {!collapsed && (
             <div className="min-w-0">
@@ -132,12 +145,18 @@ export function Sidebar({ userRole, userName, userEmail }: SidebarProps) {
             <div className="min-w-0">
               <p className="text-xs font-medium truncate" style={{ color: '#e2e8f0' }}>{userName}</p>
               <p className="text-xs truncate" style={{ color: '#475569' }}>{roleLabels[userRole]}</p>
+              <p className="text-[10px] truncate" style={{ color: '#64748b' }}>{userEmail}</p>
             </div>
           )}
         </div>
       </div>
     </div>
   );
+}
+
+export function Sidebar({ userRole, userName, userEmail }: SidebarProps) {
+  const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
@@ -150,11 +169,11 @@ export function Sidebar({ userRole, userName, userEmail }: SidebarProps) {
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 md:hidden transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
         style={{ background: 'rgba(8,18,36,0.99)', borderRight: '1px solid rgba(255,255,255,0.07)' }}>
         <button onClick={() => setMobileOpen(false)} className="absolute top-4 right-4 p-1.5 rounded-lg" style={{ color: '#64748b' }}><X size={18} /></button>
-        <SidebarContent />
+        <SidebarContent collapsed={collapsed} mobileOpen={mobileOpen} userRole={userRole} userName={userName} userEmail={userEmail} setCollapsed={setCollapsed} setMobileOpen={setMobileOpen} />
       </aside>
       <aside className={`hidden md:flex flex-col h-full flex-shrink-0 transition-all duration-300 ${collapsed ? 'w-16' : 'w-56'}`}
         style={{ background: 'rgba(8,18,36,0.97)', borderRight: '1px solid rgba(255,255,255,0.07)' }}>
-        <SidebarContent />
+        <SidebarContent collapsed={collapsed} mobileOpen={mobileOpen} userRole={userRole} userName={userName} userEmail={userEmail} setCollapsed={setCollapsed} setMobileOpen={setMobileOpen} />
       </aside>
     </>
   );

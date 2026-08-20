@@ -42,7 +42,8 @@ export default auth((req: NextRequest & { auth: { user?: { role?: string } } | n
   const publicPaths = ['/login', '/api/auth', '/p/', '/beranda'];
   // API pengaduan: submit publik + cek tiket publik boleh tanpa login
   const isPublicApi = pathname === '/api/pengaduan' || /^\/api\/pengaduan\/[^/]+$/.test(pathname);
-  if (publicPaths.some(p => pathname.startsWith(p)) || isPublicApi) {
+  const isPublicBeritaReadApi = pathname === '/api/berita' || /^\/api\/berita\/[^/]+$/.test(pathname);
+  if ((publicPaths.some(p => pathname.startsWith(p)) || isPublicApi || (isPublicBeritaReadApi && req.method === 'GET'))) {
     return NextResponse.next();
   }
 

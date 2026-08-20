@@ -92,14 +92,16 @@ export default function PetaMap() {
 
   const fetchPoints = useCallback(() => {
     setLoading(true);
-    const p = new URLSearchParams();
-    Object.entries(filters).forEach(([k, v]) => { if (v) p.set(k === 'kecamatanId' ? k : k.replace('Id', 'Id'), v); });
-    fetch(`/api/map/points?${p}`).then(r => r.json()).then(d => {
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) params.set(key, value);
+    });
+    fetch(`/api/map/points?${params.toString()}`).then(r => r.json()).then(d => {
       if (d.success) setPoints(d.data);
     }).finally(() => setLoading(false));
   }, [filters]);
 
-  useEffect(() => { fetchPoints(); }, [fetchPoints]);
+  useEffect(() => { void fetchPoints(); }, [fetchPoints]);
 
   useEffect(() => {
     fetch('/api/map/filters').then(r => r.json()).then(d => { if (d.success) setFilterOptions(d.data); });

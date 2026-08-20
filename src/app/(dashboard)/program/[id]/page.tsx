@@ -246,7 +246,7 @@ export default function ProgramDetailPage({ params }: { params: Promise<{ id: st
       </div>
 
       {kegiatanList.length === 0 && (
-        <div className="glass-card p-8 text-center" style={{ color: '#475569' }}>Belum ada kegiatan. Klik tombol "Kegiatan" untuk menambahkan.</div>
+        <div className="glass-card p-8 text-center" style={{ color: '#475569' }}>Belum ada kegiatan. Klik tombol &quot;Kegiatan&quot; untuk menambahkan.</div>
       )}
 
       {kegiatanList.map(k => (

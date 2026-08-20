@@ -71,7 +71,7 @@ export default function LaporanPage() {
 
   // Export function
   const handleExport = (tipe: string) => {
-    const params = new URLSearchParams({ tipe, format: 'csv' });
+    const params = new URLSearchParams({ tipe, format: 'xlsx' });
     window.open(`/api/laporan/export?${params}`, '_blank');
   };
 
@@ -104,7 +104,7 @@ export default function LaporanPage() {
       {/* TAB LAPORAN */}
       {tab === 'laporan' && (
         <div className="space-y-4">
-          <p className="text-sm" style={{ color: '#64748b' }}>Unduh laporan dalam format CSV untuk dianalisis atau dilaporkan ke Bupati dan Bappeda.</p>
+          <p className="text-sm" style={{ color: '#64748b' }}>Unduh laporan dalam format XLSX untuk dianalisis atau dilaporkan ke Bupati dan Bappeda.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { label: 'Laporan Monev Penerima', desc: 'Seluruh data penerima bantuan, status verifikasi, kapasitas produksi', tipe: 'monev', color: '#00d4aa' },
@@ -126,7 +126,7 @@ export default function LaporanPage() {
                 </div>
                 <button onClick={() => handleExport(l.tipe)} className="flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-medium w-full"
                   style={{ background: `${l.color}15`, color: l.color, border: `1px solid ${l.color}30` }}>
-                  <Download size={13} /> Unduh CSV
+                  <Download size={13} /> Unduh XLSX
                 </button>
               </div>
             ))}

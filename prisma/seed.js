@@ -17,6 +17,7 @@ async function main() {
   await prisma.wilayahDesa.deleteMany();
   await prisma.wilayahKecamatan.deleteMany();
   await prisma.wilayahKabupaten.deleteMany();
+  await prisma.berita.deleteMany();
   await prisma.user.deleteMany();
 
   console.log('Seeding wilayah...');
@@ -74,6 +75,31 @@ async function main() {
       wilayah_tugas: [kecSoropia.nama, kecLalong.nama],
     },
   });
+
+  console.log('Seeding berita awal...');
+
+  const beritaAwal = await prisma.berita.createMany({
+    data: [
+      {
+        judul: 'Peningkatan Produksi Perikanan di Konawe Menjadi Fokus Utama',
+        ringkasan: 'Program pemberdayaan nelayan dan budidaya terus diperkuat untuk mendorong hasil produksi dan kesejahteraan masyarakat.',
+        isi: 'Dinas Perikanan Kabupaten Konawe menekankan penguatan program budidaya dan perikanan tangkap melalui pendampingan, distribusi sarana, serta pelatihan teknis bagi nelayan dan pembudidaya lokal. Langkah ini diharapkan dapat meningkatkan produktivitas, pendapatan, serta kesejahteraan masyarakat pesisir di wilayah Konawe.',
+        kategori: 'Perikanan',
+        penulis: 'Admin SIDAK',
+        tanggal: new Date('2026-08-21T00:00:00Z'),
+      },
+      {
+        judul: 'Pemantauan Kegiatan Lapangan Dilakukan Secara Berkala',
+        ringkasan: 'Tim teknis terus melakukan pemantauan di lapangan agar realisasi program sesuai target dan kebutuhan masyarakat.',
+        isi: 'Monitoring dan evaluasi dilakukan bersama mitra wilayah untuk memastikan bantuan dan kegiatan berjalan tepat sasaran serta dapat dipantau secara transparan. Kegiatan ini juga membantu mengidentifikasi hambatan operasional sehingga kebijakan penyesuaian dapat dilakukan dengan cepat.',
+        kategori: 'Monitoring',
+        penulis: 'Admin SIDAK',
+        tanggal: new Date('2026-08-19T00:00:00Z'),
+      },
+    ],
+  });
+
+  console.log(`Berita seeds created: ${beritaAwal.count}`);
 
   console.log('Seeding program/kegiatan/sub-kegiatan...');
 

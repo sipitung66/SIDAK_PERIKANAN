@@ -34,6 +34,9 @@ export function Header({ title, userName, userRole }: HeaderProps) {
 
       {/* Left: Brand */}
       <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full p-1" style={{ background: 'rgba(0,212,170,0.08)', border: '1px solid rgba(0,212,170,0.12)' }}>
+          <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-full h-full object-contain" />
+        </div>
         <div>
           <h1 className="text-base font-extrabold tracking-widest leading-none"
             style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>

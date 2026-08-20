@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -87,11 +88,12 @@ export default function LoginPage() {
           {/* Logo & Brand */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
-              <div className="p-4 rounded-2xl" style={{
-                background: 'linear-gradient(135deg, #00d4aa, #00b4d8)',
-                boxShadow: '0 8px 24px rgba(0, 212, 170, 0.3)'
+              <div className="rounded-2xl p-2" style={{
+                background: 'linear-gradient(135deg, rgba(0,212,170,0.15), rgba(0,180,216,0.12))',
+                boxShadow: '0 8px 24px rgba(0, 212, 170, 0.2)',
+                border: '1px solid rgba(0,212,170,0.18)'
               }}>
-                <Fish size={32} className="text-white" />
+                <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-24 h-24 object-contain" />
               </div>
             </div>
             <h1 className="text-2xl font-bold mb-1" style={{
@@ -192,6 +194,14 @@ export default function LoginPage() {
               )}
             </button>
           </form>
+
+          <div className="mt-4 flex justify-center">
+            <Link href="/beranda"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:opacity-90"
+              style={{ background: 'rgba(255,255,255,0.04)', color: '#e2e8f0', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <Waves size={14} /> Kembali ke Beranda
+            </Link>
+          </div>
 
           {/* Demo credentials */}
           <div className="mt-6 p-4 rounded-lg" style={{

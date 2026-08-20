@@ -1,11 +1,41 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import {
   MessageSquare, LogIn, Fish, Anchor, ChevronRight,
-  Shield, BarChart3, Map, Phone
+  Shield, Phone, Newspaper, ArrowRight
 } from 'lucide-react';
-import { PengaduanFAB } from '@/components/ui/PengaduanFAB';
+
+type BeritaItem = {
+  id: string;
+  judul: string;
+  ringkasan: string;
+  isi: string;
+  kategori: string;
+  penulis: string;
+  tanggal: string;
+};
 
 export default function BerandaPage() {
+  const [berita, setBerita] = useState<BeritaItem[]>([]);
+
+  useEffect(() => {
+    const fetchBerita = async () => {
+      try {
+        const res = await fetch('/api/berita', { cache: 'no-store' });
+        const payload = await res.json();
+        if (payload?.success && Array.isArray(payload.data)) {
+          setBerita(payload.data);
+        }
+      } catch {
+        setBerita([]);
+      }
+    };
+
+    fetchBerita();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ background: '#0a1628' }}>
 
@@ -13,9 +43,9 @@ export default function BerandaPage() {
       <header className="flex items-center justify-between px-6 py-4 border-b"
         style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #1a4a8a, #0e7490)', border: '2px solid rgba(0,212,170,0.4)' }}>
-            <Anchor size={18} style={{ color: '#00d4aa' }} />
+          <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 p-1"
+            style={{ background: 'linear-gradient(135deg, rgba(0,212,170,0.12), rgba(0,180,216,0.12))', border: '2px solid rgba(0,212,170,0.25)' }}>
+            <img src="/logo-sidak.svg" alt="SIDAK Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <p className="font-extrabold text-sm leading-tight"
@@ -72,6 +102,46 @@ export default function BerandaPage() {
               <LogIn size={18} />
               Login Petugas
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Portal Berita ─────────────────────────────────────── */}
+      <section className="px-6 pb-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(0,212,170,0.12)' }}>
+                <Newspaper size={18} style={{ color: '#00d4aa' }} />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: '#00d4aa' }}>Portal Berita</p>
+                <h2 className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>Berita Terbaru</h2>
+              </div>
+            </div>
+            <Link href="/login" className="text-sm font-medium" style={{ color: '#94a3b8' }}>Kelola berita</Link>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {berita.map((item) => (
+              <article key={item.id} className="glass-card p-5 h-full flex flex-col" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] uppercase tracking-[0.2em] px-2 py-1 rounded-full" style={{ background: 'rgba(0,180,216,0.12)', color: '#00b4d8' }}>
+                    {item.kategori}
+                  </span>
+                  <span className="text-[11px]" style={{ color: '#64748b' }}>{new Date(item.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                </div>
+                <h3 className="text-lg font-bold leading-snug mb-2" style={{ color: '#e2e8f0' }}>{item.judul}</h3>
+                <p className="text-sm mb-4 leading-relaxed" style={{ color: '#94a3b8' }}>{item.ringkasan}</p>
+                <p className="text-xs leading-relaxed mb-4" style={{ color: '#64748b' }}>{item.isi}</p>
+                <div className="mt-auto flex items-center justify-between pt-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+                  <span className="text-xs" style={{ color: '#64748b' }}>{item.penulis}</span>
+                  <Link href={`/berita/${item.id}`} className="inline-flex items-center gap-1 text-xs font-medium" style={{ color: '#00d4aa' }}>
+                    Baca detail <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

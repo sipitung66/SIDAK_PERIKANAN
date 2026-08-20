@@ -10,7 +10,7 @@ export async function GET() {
       },
     });
 
-    const result = subKegiatans.map(sk => {
+    const result = subKegiatans.map((sk: (typeof subKegiatans)[number]) => {
       const ind = sk.indikator_capaian[0];
       const verified = sk.monev_penerima.filter(m => m.status === 'diverifikasi');
       const realisasi = verified.reduce((s, m) => s + (m.kapasitas_produksi_sesudah || 0), 0);

@@ -254,6 +254,18 @@ model RealisasiFisikKeuangan {
 }
 
 // ─── Modul D: Pengaduan Terintegrasi ─────────────────────────────────────────
+model Berita {
+  id         String   @id @default(uuid())
+  judul      String
+  ringkasan  String
+  isi        String
+  kategori   String   @default("Informasi")
+  penulis    String   @default("Admin SIDAK")
+  tanggal    DateTime @default(now())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
 model Pengaduan {
   id              String   @id @default(uuid())
   nomor_tiket     String   @unique  // auto-generate: TKT-2026-XXXXX

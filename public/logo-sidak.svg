@@ -1,0 +1,69 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SIDAK Logo</title>
+  <desc id="desc">SIDAK logo with fish, wave, growth bar, and branding text for the fishery information system of Konawe Regency.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F3A"/>
+      <stop offset="100%" stop-color="#0B1835"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9DD8B"/>
+      <stop offset="50%" stop-color="#E6B74B"/>
+      <stop offset="100%" stop-color="#C18A1F"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1BD0C3"/>
+      <stop offset="50%" stop-color="#0EAED0"/>
+      <stop offset="100%" stop-color="#0A6DB3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#031321" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#f5f5f5"/>
+
+  <g transform="translate(100 50)">
+    <g filter="url(#shadow)">
+      <path d="M120 460 C130 350, 220 255, 360 255 C520 255, 640 315, 760 390 C840 320, 960 300, 1030 340 C980 390, 930 448, 930 540 C930 642, 836 724, 715 733 C610 740, 515 715, 445 680 C369 640, 275 640, 186 677 C142 695, 115 714, 92 749 C66 714, 55 631, 59 564 C66 510, 90 475, 120 460 Z" fill="url(#teal)" opacity="0.95"/>
+      <path d="M338 285 C415 240, 518 240, 625 285 C706 320, 761 350, 806 405 C754 420, 688 453, 628 443 C551 432, 477 390, 412 363 C370 345, 340 325, 338 285 Z" fill="#0B548F" opacity="0.45"/>
+
+      <path d="M170 470 C270 410, 332 382, 426 368 C508 356, 583 367, 660 408 C720 439, 768 480, 812 524 C863 569, 921 607, 961 640 C922 699, 859 730, 787 739 C717 748, 645 730, 575 701 C482 663, 390 634, 281 640 C221 643, 182 631, 153 611 C145 580, 157 522, 170 470 Z" fill="#1BB6CF" opacity="0.65"/>
+
+      <path d="M340 395 C386 378, 430 360, 482 367 C585 380, 653 438, 696 487 C650 521, 605 552, 553 573 C511 590, 468 594, 421 585 C375 575, 331 557, 289 523 C258 497, 230 468, 196 459 C225 425, 273 405, 340 395 Z" fill="#0B2446" opacity="0.9"/>
+
+      <path d="M462 308 C563 340, 624 388, 686 466 C628 470, 578 490, 530 518 L519 487 L501 500 L476 427 L453 440 L425 378 L462 308 Z" fill="url(#gold)"/>
+
+      <path d="M368 311 C412 266, 444 250, 488 242 C464 268, 451 297, 450 332 C420 325, 391 318, 368 311 Z" fill="#0C1D3F" opacity="0.96"/>
+      <path d="M370 343 C416 352, 450 360, 489 384 C473 407, 454 432, 421 441 C391 450, 362 447, 336 439 C307 431, 282 421, 265 405 C302 370, 333 353, 370 343 Z" fill="#0B2446" opacity="0.95"/>
+      <circle cx="559" cy="381" r="17" fill="#F5F9FF"/>
+      <circle cx="559" cy="381" r="7" fill="#0B2446"/>
+
+      <path d="M253 585 L456 585 L456 623 L253 623 Z" fill="#0B2446" opacity="0.95"/>
+      <path d="M230 667 L528 667 L528 708 L230 708 Z" fill="#0B2446" opacity="0.95"/>
+      <path d="M355 708 L685 708 L685 744 L355 744 Z" fill="#0B2446" opacity="0.95"/>
+
+      <path d="M702 410 L778 410 L778 482 L702 482 Z" fill="url(#gold)"/>
+      <path d="M775 410 L849 410 L849 555 L775 555 Z" fill="#0D9B87"/>
+      <path d="M852 410 L926 410 L926 632 L852 632 Z" fill="#F5BB48"/>
+      <path d="M929 410 L1003 410 L1003 580 L929 580 Z" fill="#4FB18B"/>
+
+      <path d="M676 577 L846 404 L923 404 L747 651 L676 577 Z" fill="url(#gold)"/>
+      <path d="M676 577 L846 404 L916 404 L703 648 L676 577 Z" fill="url(#gold)" opacity="0.82"/>
+      <path d="M704 652 L974 652" stroke="#F5D983" stroke-width="12" stroke-linecap="round"/>
+      <path d="M783 398 L885 298 L925 338 L820 441 Z" fill="#0C2447" opacity="0.18"/>
+    </g>
+
+    <g>
+      <path d="M64 113 C196 43, 342 45, 480 115 C604 177, 707 170, 837 115 C946 70, 1050 70, 1118 90 C1050 152, 1010 224, 995 292 C885 188, 754 162, 615 178 C486 193, 391 246, 296 301 C213 350, 137 398, 42 385 C24 285, 30 190, 64 113 Z" fill="url(#gold)" opacity="0.96"/>
+      <path d="M40 367 C214 334, 363 341, 490 392 C601 438, 707 432, 815 392 C925 352, 1030 342, 1126 369 C1096 444, 1059 501, 1021 551 C915 500, 777 491, 657 525 C516 565, 378 590, 253 564 C139 540, 77 487, 40 367 Z" fill="url(#teal)" opacity="0.88"/>
+    </g>
+
+    <g font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">
+      <text x="540" y="900" font-size="185" fill="#0D2448" letter-spacing="2">SIDAK</text>
+      <text x="540" y="983" font-size="34" fill="#0D2448" letter-spacing="2">SISTEM INFORMASI DATA AKTIVITAS DAN KINERJA</text>
+      <text x="540" y="1038" font-size="30" fill="#0D2448" letter-spacing="2">PERIKANAN KABUPATEN KONAWE</text>
+      <text x="540" y="1082" font-size="24" fill="#0D2448" letter-spacing="1.8">Data Terintegrasi, Perikanan Maju, Konawe Sejahtera</text>
+    </g>
+  </g>
+</svg>
