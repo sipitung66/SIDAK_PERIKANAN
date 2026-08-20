@@ -1,69 +1,64 @@
-<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="1600" height="520" viewBox="0 0 1600 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">SIDAK Logo</title>
-  <desc id="desc">SIDAK logo with fish, wave, growth bar, and branding text for the fishery information system of Konawe Regency.</desc>
+  <desc id="desc">Circular fish emblem with SIDAK wordmark and subtitle for the fishery information system.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0B1F3A"/>
-      <stop offset="100%" stop-color="#0B1835"/>
+    <linearGradient id="teal1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1bcce9"/>
+      <stop offset="100%" stop-color="#0a7ec4"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#F9DD8B"/>
-      <stop offset="50%" stop-color="#E6B74B"/>
-      <stop offset="100%" stop-color="#C18A1F"/>
+    <linearGradient id="gold1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9dc87"/>
+      <stop offset="50%" stop-color="#e7b74a"/>
+      <stop offset="100%" stop-color="#bc8b1b"/>
     </linearGradient>
-    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1BD0C3"/>
-      <stop offset="50%" stop-color="#0EAED0"/>
-      <stop offset="100%" stop-color="#0A6DB3"/>
+    <linearGradient id="navy1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a2548"/>
+      <stop offset="100%" stop-color="#0d1835"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#031321" flood-opacity="0.35"/>
+    <filter id="shadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#061d31" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <rect width="1200" height="1200" fill="#f5f5f5"/>
+  <rect width="1600" height="520" fill="#f3f3f3"/>
 
-  <g transform="translate(100 50)">
-    <g filter="url(#shadow)">
-      <path d="M120 460 C130 350, 220 255, 360 255 C520 255, 640 315, 760 390 C840 320, 960 300, 1030 340 C980 390, 930 448, 930 540 C930 642, 836 724, 715 733 C610 740, 515 715, 445 680 C369 640, 275 640, 186 677 C142 695, 115 714, 92 749 C66 714, 55 631, 59 564 C66 510, 90 475, 120 460 Z" fill="url(#teal)" opacity="0.95"/>
-      <path d="M338 285 C415 240, 518 240, 625 285 C706 320, 761 350, 806 405 C754 420, 688 453, 628 443 C551 432, 477 390, 412 363 C370 345, 340 325, 338 285 Z" fill="#0B548F" opacity="0.45"/>
+  <g transform="translate(20,18)" filter="url(#shadow1)">
+    <circle cx="190" cy="220" r="170" fill="url(#navy1)"/>
+    <circle cx="190" cy="220" r="160" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
 
-      <path d="M170 470 C270 410, 332 382, 426 368 C508 356, 583 367, 660 408 C720 439, 768 480, 812 524 C863 569, 921 607, 961 640 C922 699, 859 730, 787 739 C717 748, 645 730, 575 701 C482 663, 390 634, 281 640 C221 643, 182 631, 153 611 C145 580, 157 522, 170 470 Z" fill="#1BB6CF" opacity="0.65"/>
+    <path d="M55 230 C90 132, 185 100, 285 118 C330 127, 364 141, 395 170 C345 188, 291 216, 247 248 C208 276, 170 292, 121 300 C93 304, 69 302, 49 291 C40 270, 44 247, 55 230 Z" fill="url(#teal1)" opacity="0.95"/>
 
-      <path d="M340 395 C386 378, 430 360, 482 367 C585 380, 653 438, 696 487 C650 521, 605 552, 553 573 C511 590, 468 594, 421 585 C375 575, 331 557, 289 523 C258 497, 230 468, 196 459 C225 425, 273 405, 340 395 Z" fill="#0B2446" opacity="0.9"/>
+    <path d="M84 250 C110 210, 170 182, 233 183 C283 184, 335 205, 363 215 C329 239, 287 268, 240 285 C208 298, 171 305, 132 304 C106 303, 92 279, 84 250 Z" fill="#0e5f98" opacity="0.45"/>
 
-      <path d="M462 308 C563 340, 624 388, 686 466 C628 470, 578 490, 530 518 L519 487 L501 500 L476 427 L453 440 L425 378 L462 308 Z" fill="url(#gold)"/>
+    <path d="M80 160 C135 118, 192 132, 243 160 C203 185, 175 209, 152 242 C128 208, 104 185, 80 160 Z" fill="#0d3d6d" opacity="0.8"/>
 
-      <path d="M368 311 C412 266, 444 250, 488 242 C464 268, 451 297, 450 332 C420 325, 391 318, 368 311 Z" fill="#0C1D3F" opacity="0.96"/>
-      <path d="M370 343 C416 352, 450 360, 489 384 C473 407, 454 432, 421 441 C391 450, 362 447, 336 439 C307 431, 282 421, 265 405 C302 370, 333 353, 370 343 Z" fill="#0B2446" opacity="0.95"/>
-      <circle cx="559" cy="381" r="17" fill="#F5F9FF"/>
-      <circle cx="559" cy="381" r="7" fill="#0B2446"/>
+    <path d="M125 212 C170 188, 218 182, 270 193 C233 214, 205 230, 175 249 C152 263, 127 270, 102 269 C86 267, 75 257, 69 245 C87 226, 105 218, 125 212 Z" fill="#0d3d6d" opacity="0.9"/>
 
-      <path d="M253 585 L456 585 L456 623 L253 623 Z" fill="#0B2446" opacity="0.95"/>
-      <path d="M230 667 L528 667 L528 708 L230 708 Z" fill="#0B2446" opacity="0.95"/>
-      <path d="M355 708 L685 708 L685 744 L355 744 Z" fill="#0B2446" opacity="0.95"/>
+    <path d="M200 146 C235 164, 273 189, 295 224 L264 224 L238 198 L214 216 L194 180 L200 146 Z" fill="url(#gold1)"/>
 
-      <path d="M702 410 L778 410 L778 482 L702 482 Z" fill="url(#gold)"/>
-      <path d="M775 410 L849 410 L849 555 L775 555 Z" fill="#0D9B87"/>
-      <path d="M852 410 L926 410 L926 632 L852 632 Z" fill="#F5BB48"/>
-      <path d="M929 410 L1003 410 L1003 580 L929 580 Z" fill="#4FB18B"/>
+    <path d="M120 146 C150 116, 180 98, 209 96 C199 115, 191 136, 191 164 C162 159, 141 154, 120 146 Z" fill="#0c2344" opacity="0.98"/>
+    <path d="M131 172 C167 177, 193 182, 229 204 C215 224, 197 245, 169 253 C145 260, 119 258, 95 250 C78 241, 62 228, 50 214 C79 189, 102 178, 131 172 Z" fill="#0c2344" opacity="0.94"/>
+    <circle cx="250" cy="180" r="9" fill="#f6fbff"/>
+    <circle cx="250" cy="180" r="4" fill="#0b2144"/>
 
-      <path d="M676 577 L846 404 L923 404 L747 651 L676 577 Z" fill="url(#gold)"/>
-      <path d="M676 577 L846 404 L916 404 L703 648 L676 577 Z" fill="url(#gold)" opacity="0.82"/>
-      <path d="M704 652 L974 652" stroke="#F5D983" stroke-width="12" stroke-linecap="round"/>
-      <path d="M783 398 L885 298 L925 338 L820 441 Z" fill="#0C2447" opacity="0.18"/>
-    </g>
+    <path d="M87 297 L236 297 L236 325 L87 325 Z" fill="#0e2f58"/>
+    <path d="M67 349 L244 349 L244 377 L67 377 Z" fill="#0e2f58"/>
+    <path d="M125 377 L314 377 L314 400 L125 400 Z" fill="#0e2f58"/>
 
-    <g>
-      <path d="M64 113 C196 43, 342 45, 480 115 C604 177, 707 170, 837 115 C946 70, 1050 70, 1118 90 C1050 152, 1010 224, 995 292 C885 188, 754 162, 615 178 C486 193, 391 246, 296 301 C213 350, 137 398, 42 385 C24 285, 30 190, 64 113 Z" fill="url(#gold)" opacity="0.96"/>
-      <path d="M40 367 C214 334, 363 341, 490 392 C601 438, 707 432, 815 392 C925 352, 1030 342, 1126 369 C1096 444, 1059 501, 1021 551 C915 500, 777 491, 657 525 C516 565, 378 590, 253 564 C139 540, 77 487, 40 367 Z" fill="url(#teal)" opacity="0.88"/>
-    </g>
+    <path d="M330 208 H385 V264 H330 Z" fill="url(#gold1)"/>
+    <path d="M390 208 H448 V308 H390 Z" fill="#1ec8b5"/>
+    <path d="M452 208 H510 V346 H452 Z" fill="#f1b443"/>
+    <path d="M514 208 H572 V298 H514 Z" fill="#67b67f"/>
 
-    <g font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">
-      <text x="540" y="900" font-size="185" fill="#0D2448" letter-spacing="2">SIDAK</text>
-      <text x="540" y="983" font-size="34" fill="#0D2448" letter-spacing="2">SISTEM INFORMASI DATA AKTIVITAS DAN KINERJA</text>
-      <text x="540" y="1038" font-size="30" fill="#0D2448" letter-spacing="2">PERIKANAN KABUPATEN KONAWE</text>
-      <text x="540" y="1082" font-size="24" fill="#0D2448" letter-spacing="1.8">Data Terintegrasi, Perikanan Maju, Konawe Sejahtera</text>
-    </g>
+    <path d="M318 327 L435 211 L510 211 L405 360 L318 327 Z" fill="url(#gold1)"/>
+    <path d="M318 327 L435 211 L503 211 L395 350 L318 327 Z" fill="url(#gold1)" opacity="0.9"/>
+    <path d="M317 360 L558 360" stroke="#f4d67d" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(620, 0)">
+    <text x="0" y="170" font-size="180" font-weight="800" font-family="Arial, Helvetica, sans-serif" fill="#0b6f9f" letter-spacing="4">SIDAK</text>
+    <text x="0" y="250" font-size="58" font-weight="500" font-family="Arial, Helvetica, sans-serif" fill="#4b5b6d" letter-spacing="1">Sistem Informasi Data Aktivitas &amp; Kinerja</text>
+    <text x="0" y="340" font-size="82" font-weight="800" font-family="Arial, Helvetica, sans-serif" fill="#0b3e63" letter-spacing="2">Perikanan Konawe</text>
+    <text x="0" y="400" font-size="28" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#3b5f7d" letter-spacing="1">Data Terintegrasi, Perikanan Maju, Konawe Sejahtera</text>
   </g>
 </svg>
