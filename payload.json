@@ -1,0 +1,28 @@
+﻿{
+  "kegiatanId": "206bf42a-4251-43c8-965f-14de544dcb9d",
+  "bentukIntervensiId": "babcff67-6e99-4a9f-a7f4-72ce28d606fc",
+  "namaPenerima": "Test User",
+  "nikPenerima": "1234567890123456",
+  "kelompok": "Kelompok Test",
+  "noTelp": "081234567890",
+  "kabupatenId": "kab1",
+  "kecamatanId": "kec1",
+  "desaId": "desa1",
+  "alamatLengkap": "Jl. Test",
+  "lat": -5.1,
+  "lng": 119.4,
+  "kategoriKegiatan": "budidaya_ikan",
+  "kapasitasSebelum": 10,
+  "kapasitasSesudah": 25,
+  "satuanKapasitas": "kg",
+  "realisasiCapaian": 150,
+  "nilaiBantuanDiterima": 500000,
+  "tanggalPenyaluran": "2025-05-01",
+  "tanggalSurvei": "2025-05-03",
+  "status": "draft",
+  "catatan": "Test entry",
+  "createdBy": "demo-user",
+  "sarpras": [
+    {"nama": "Kolam Terpal", "jumlah": 2, "kondisi": "baik"}
+  ]
+}

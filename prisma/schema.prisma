@@ -1,0 +1,279 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String          @id @default(uuid())
+  nama             String
+  email            String          @unique
+  password_hash    String
+  role             String          // super_admin, admin_program, petugas_lapangan, pimpinan
+  wilayah_tugas    String[]        @default([])
+  created_at       DateTime        @default(now())
+  updated_at       DateTime        @updatedAt
+
+  monev_inputted   MonevPenerima[] @relation("InputByUser")
+  monev_verified   MonevPenerima[] @relation("VerifiedByUser")
+}
+
+model Program {
+  id                     String     @id @default(uuid())
+  nama_program           String
+  kode_program           String     @unique
+  kode_rekening_program  String?
+  tahun_anggaran         Int
+  // Bidang: tangkap | budidaya | pengolahan | pengawasan | sekretariat
+  bidang                 String?    @default("lainnya")
+  deskripsi              String?
+  sumber_dana            String?
+  status                 String     @default("aktif") // aktif, tidak_aktif, selesai
+  created_by             String?
+  created_at             DateTime   @default(now())
+  updated_at             DateTime   @updatedAt
+
+  kegiatan               Kegiatan[]
+}
+
+/// Level 2 — dahulu SubProgram
+model Kegiatan {
+  id                     String        @id @default(uuid())
+  program_id             String
+  nama_kegiatan          String
+  deskripsi              String?
+  kode_rekening_kegiatan String?
+  status                 String        @default("aktif")
+  created_at             DateTime      @default(now())
+  updated_at             DateTime      @updatedAt
+
+  program                Program       @relation(fields: [program_id], references: [id], onDelete: Cascade)
+  sub_kegiatan           SubKegiatan[]
+}
+
+/// Level 3 — dahulu Kegiatan
+model SubKegiatan {
+  id                         String   @id @default(uuid())
+  kegiatan_id                String
+  nama_sub_kegiatan          String
+  deskripsi                  String?
+  lokasi_kecamatan_target    String[] @default([])
+  jumlah_target_penerima     Int?
+  nilai_anggaran             Float?
+  kode_rekening_subkegiatan  String?
+  sumber_dana                String?
+  pagu_anggaran_subkegiatan  Float?
+  indikator_kinerja_sasaran  String?
+  satuan_ukur                String?
+  nilai_baseline             Float?
+  target_kenaikan            Float?
+  status                     String   @default("aktif")
+  created_at                 DateTime @default(now())
+  updated_at                 DateTime @updatedAt
+
+  kegiatan                   Kegiatan           @relation(fields: [kegiatan_id], references: [id], onDelete: Cascade)
+  indikator_capaian          IndikatorCapaian[]
+  bentuk_intervensi          BentukIntervensi[]
+  monev_penerima             MonevPenerima[]
+  realisasi_fisik_keuangan   RealisasiFisikKeuangan[]
+}
+
+model IndikatorCapaian {
+  id               String      @id @default(uuid())
+  sub_kegiatan_id  String
+  nama_indikator   String
+  target_capaian   Float
+  satuan           String
+  tahun            Int
+  created_at       DateTime    @default(now())
+  updated_at       DateTime    @updatedAt
+
+  sub_kegiatan     SubKegiatan @relation(fields: [sub_kegiatan_id], references: [id], onDelete: Cascade)
+}
+
+model BentukIntervensi {
+  id                    String      @id @default(uuid())
+  sub_kegiatan_id       String
+  nama_bentuk_bantuan   String
+  satuan                String
+  estimasi_nilai_rupiah Float?
+  status                String      @default("aktif")
+  created_at            DateTime    @default(now())
+  updated_at            DateTime    @updatedAt
+
+  sub_kegiatan          SubKegiatan     @relation(fields: [sub_kegiatan_id], references: [id], onDelete: Cascade)
+  monev_penerima        MonevPenerima[]
+}
+
+model WilayahKabupaten {
+  id        String             @id @default(uuid())
+  nama      String
+  kecamatan WilayahKecamatan[]
+}
+
+model WilayahKecamatan {
+  id           String           @id @default(uuid())
+  kabupaten_id String
+  nama         String
+  kabupaten    WilayahKabupaten @relation(fields: [kabupaten_id], references: [id], onDelete: Cascade)
+  desa         WilayahDesa[]
+}
+
+model WilayahDesa {
+  id           String           @id @default(uuid())
+  kecamatan_id String
+  nama         String
+  kecamatan    WilayahKecamatan @relation(fields: [kecamatan_id], references: [id], onDelete: Cascade)
+}
+
+model MonevPenerima {
+  id                            String   @id @default(uuid())
+  sub_kegiatan_id               String
+  bentuk_intervensi_id          String
+  id_penerima                   String?
+  kategori_penerima             String?
+  nama_penerima                 String
+  nik                           String
+  nik_ketua                     String?
+  nomor_kusuka                  String?
+  no_hp                         String?
+  jenis_kelamin                 String?
+  nama_kelompok                 String?
+
+  kabupaten_id                  String?
+  kecamatan_id                  String?
+  desa_id                       String?
+  alamat_lengkap                String?
+  latitude                      Float?
+  longitude                     Float?
+
+  kategori_kegiatan_perikanan   String?
+  kapasitas_produksi_sebelum    Float?
+  kapasitas_produksi_sesudah    Float?
+  satuan_produksi               String?
+
+  nomor_sp2d                    String?
+  tanggal_sp2d                  DateTime?
+  nilai_pencairan               Float?
+  kode_barang                   String?
+  nama_barang_bantuan           String?
+  spesifikasi_teknis            String?
+  nomor_register_aset          String?
+  nilai_perolehan_aset          Float?
+  jumlah_barang                 Int?
+  nomor_bast                    String?
+  tanggal_bast                  DateTime?
+  file_bast                     String?
+
+  waktu_inspeksi                DateTime?
+  id_penyuluh_verifikator       String?
+  foto_kondisi_aset             String?
+  status_kondisi_aset           String?
+  status_pemanfaatan            String?
+  nilai_endline_produksi        Float?
+  catatan_hambatan              String?
+
+  persentase_capaian_indikator  Float?
+  nilai_bantuan_diterima        Float?
+  akumulasi_persentase_keuangan Float?
+  delta_kapasitas_produksi      Float?
+  persentase_capaian_kinerja    Float?
+  status_indikator_warna        String?
+
+  tanggal_penyaluran            DateTime?
+  tanggal_survei                DateTime?
+
+  status                        String   @default("draft")
+  catatan_verifikator           String?
+
+  input_by                      String?
+  verified_by                   String?
+
+  created_at                    DateTime @default(now())
+  updated_at                    DateTime @updatedAt
+
+  sub_kegiatan      SubKegiatan        @relation(fields: [sub_kegiatan_id], references: [id], onDelete: Restrict)
+  bentuk_intervensi BentukIntervensi   @relation(fields: [bentuk_intervensi_id], references: [id], onDelete: Restrict)
+  inputter          User?              @relation("InputByUser", fields: [input_by], references: [id], onDelete: SetNull)
+  verifier          User?              @relation("VerifiedByUser", fields: [verified_by], references: [id], onDelete: SetNull)
+  sarpras_pendukung SarprasPendukung[]
+  foto              MonevFoto[]
+}
+
+model SarprasPendukung {
+  id            String        @id @default(uuid())
+  monev_id      String
+  jenis_sarpras String
+  jumlah        Int
+  satuan        String?       @default("unit")
+  kondisi       String?
+
+  monev         MonevPenerima @relation(fields: [monev_id], references: [id], onDelete: Cascade)
+}
+
+model MonevFoto {
+  id         String        @id @default(uuid())
+  monev_id   String
+  url        String
+  keterangan String?
+
+  monev      MonevPenerima @relation(fields: [monev_id], references: [id], onDelete: Cascade)
+}
+
+// ─── Modul A: Realisasi Fisik & Keuangan (Workflow PPTK bulanan) ──────────────
+// Diinput oleh Admin Program / PPTK per periode (bulanan/triwulanan)
+model RealisasiFisikKeuangan {
+  id                    String   @id @default(uuid())
+  sub_kegiatan_id       String
+  periode               String   // format: "2026-01" / "2026-Q1"
+  tipe_periode          String   @default("bulanan") // bulanan | triwulanan
+  tahun                 Int
+
+  // Realisasi Fisik
+  realisasi_fisik_persen  Float?  // % capaian pekerjaan
+  deskripsi_realisasi     String?
+  kendala_hambatan        String?
+
+  // Realisasi Keuangan
+  pagu_anggaran           Float?  // dari sub_kegiatan.pagu_anggaran_subkegiatan
+  realisasi_keuangan      Float?  // nominal Rp terserap
+  serapan_persen          Float?  // % serapan = realisasi/pagu * 100
+
+  // Alert
+  deviasi_persen          Float?  // | target - realisasi |
+  status_alert            String? // hijau | kuning | merah
+
+  input_by                String?
+  created_at              DateTime @default(now())
+  updated_at              DateTime @updatedAt
+
+  sub_kegiatan SubKegiatan @relation(fields: [sub_kegiatan_id], references: [id], onDelete: Cascade)
+}
+
+// ─── Modul D: Pengaduan Terintegrasi ─────────────────────────────────────────
+model Pengaduan {
+  id              String   @id @default(uuid())
+  nomor_tiket     String   @unique  // auto-generate: TKT-2026-XXXXX
+  nama_pengadu    String
+  nik_pengadu     String?  // NIK 16 digit (opsional)
+  no_hp           String?
+  kategori        String   // budidaya | tangkap | pengolahan | pengawasan | lainnya
+  kecamatan       String?
+  kabupaten_id    String?
+  isi_pengaduan   String
+  lampiran_url    String?
+
+  // Status tracking (Modul D poin 4)
+  status          String   @default("menunggu") // menunggu | diproses | selesai | ditolak
+  catatan_admin   String?
+  bidang_disposisi String? // bidang yang menangani
+  petugas_id      String?  // user yang menangani
+  tanggal_selesai DateTime?
+
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
+
