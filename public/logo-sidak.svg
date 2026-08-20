@@ -1,64 +1,74 @@
-<svg width="1600" height="520" viewBox="0 0 1600 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">SIDAK Logo</title>
-  <desc id="desc">Circular fish emblem with SIDAK wordmark and subtitle for the fishery information system.</desc>
+  <desc id="desc">Circular fish emblem with SIDAK wordmark and Konawe branding text.</desc>
   <defs>
-    <linearGradient id="teal1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1bcce9"/>
-      <stop offset="100%" stop-color="#0a7ec4"/>
+    <linearGradient id="ringBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14d1f0"/>
+      <stop offset="100%" stop-color="#0d72b7"/>
     </linearGradient>
-    <linearGradient id="gold1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f9dc87"/>
-      <stop offset="50%" stop-color="#e7b74a"/>
-      <stop offset="100%" stop-color="#bc8b1b"/>
+    <linearGradient id="fishBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d3e72"/>
+      <stop offset="100%" stop-color="#0a2f5d"/>
     </linearGradient>
-    <linearGradient id="navy1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a2548"/>
-      <stop offset="100%" stop-color="#0d1835"/>
+    <linearGradient id="fishLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1bc9e8"/>
+      <stop offset="100%" stop-color="#0d7ecd"/>
     </linearGradient>
-    <filter id="shadow1" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#061d31" flood-opacity="0.35"/>
-    </filter>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9d774"/>
+      <stop offset="50%" stop-color="#f1b63d"/>
+      <stop offset="100%" stop-color="#d38a18"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#97d85f"/>
+      <stop offset="100%" stop-color="#4da85d"/>
+    </linearGradient>
   </defs>
 
-  <rect width="1600" height="520" fill="#f3f3f3"/>
+  <rect width="1200" height="1200" fill="#f3f3f3"/>
 
-  <g transform="translate(20,18)" filter="url(#shadow1)">
-    <circle cx="190" cy="220" r="170" fill="url(#navy1)"/>
-    <circle cx="190" cy="220" r="160" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+  <g transform="translate(70,30)">
+    <path d="M157 298 C90 245, 74 155, 104 84 C173 88, 242 103, 300 139 C368 177, 418 229, 446 289 C369 286, 288 292, 219 310 C195 317, 173 317, 157 298 Z" fill="url(#ringBlue)" opacity="0.95"/>
+    <path d="M79 387 C157 356, 255 348, 355 366 C420 379, 469 393, 532 430 C470 455, 393 476, 312 485 C243 493, 185 492, 120 472 C95 464, 96 429, 79 387 Z" fill="url(#ringBlue)" opacity="0.95"/>
 
-    <path d="M55 230 C90 132, 185 100, 285 118 C330 127, 364 141, 395 170 C345 188, 291 216, 247 248 C208 276, 170 292, 121 300 C93 304, 69 302, 49 291 C40 270, 44 247, 55 230 Z" fill="url(#teal1)" opacity="0.95"/>
+    <g>
+      <path d="M130 462 C174 503, 241 529, 311 525 C382 522, 450 494, 500 449 C528 423, 551 395, 575 355 C620 382, 660 414, 694 438 C651 490, 600 534, 528 567 C468 596, 415 610, 353 608 C265 605, 194 574, 130 462 Z" fill="url(#ringBlue)" opacity="0.9"/>
+      <path d="M135 484 C220 447, 298 440, 383 454 C450 466, 511 487, 557 518 C507 530, 457 544, 406 552 C339 563, 275 560, 216 541 C180 531, 153 511, 135 484 Z" fill="#0b6ca7" opacity="0.35"/>
+      <path d="M100 488 C127 475, 148 472, 168 481 C182 480, 194 485, 207 492 C186 512, 170 523, 154 538 C131 529, 111 513, 100 488 Z" fill="#145c90" opacity="0.8"/>
+    </g>
 
-    <path d="M84 250 C110 210, 170 182, 233 183 C283 184, 335 205, 363 215 C329 239, 287 268, 240 285 C208 298, 171 305, 132 304 C106 303, 92 279, 84 250 Z" fill="#0e5f98" opacity="0.45"/>
+    <g>
+      <path d="M228 340 C268 299, 343 274, 412 279 C457 282, 505 297, 549 323 C550 349, 529 390, 492 404 C447 421, 392 430, 349 427 C296 423, 257 401, 228 365 C220 355, 220 348, 228 340 Z" fill="url(#fishBlue)"/>
+      <path d="M168 348 C234 306, 289 291, 342 291 C320 327, 295 355, 253 374 C216 390, 174 395, 130 395 C129 376, 140 360, 168 348 Z" fill="url(#fishLight)" opacity="0.9"/>
+      <path d="M335 287 C382 304, 431 327, 464 363 C434 365, 407 377, 381 391 C350 379, 325 364, 303 341 C307 319, 318 301, 335 287 Z" fill="#0a2958" opacity="0.95"/>
+      <path d="M454 317 L537 314 L590 365 L530 386 L454 317 Z" fill="#0c2b53"/>
+      <path d="M497 358 C524 333, 564 322, 602 323 C582 355, 560 377, 521 390 C495 399, 468 399, 449 389 C450 376, 470 366, 497 358 Z" fill="#0c2b53" opacity="0.92"/>
+      <circle cx="544" cy="304" r="15" fill="#f7fbff"/>
+      <circle cx="544" cy="304" r="6" fill="#0b2148"/>
+    </g>
 
-    <path d="M80 160 C135 118, 192 132, 243 160 C203 185, 175 209, 152 242 C128 208, 104 185, 80 160 Z" fill="#0d3d6d" opacity="0.8"/>
+    <g>
+      <rect x="301" y="250" width="40" height="125" fill="#0b3d73"/>
+      <rect x="357" y="220" width="40" height="155" fill="#0d7fbd"/>
+      <rect x="414" y="196" width="40" height="179" fill="#f3b63e"/>
+      <rect x="470" y="234" width="40" height="141" fill="#8ac66d"/>
+      <path d="M555 153 L657 254 L628 282 L535 192 L555 153 Z" fill="#0a2a55"/>
+      <path d="M518 170 L660 170 L660 206 L518 206 Z" fill="#1bb5d6" opacity="0.9"/>
+      <path d="M628 282 L669 240 L726 286 L675 334 Z" fill="#0b2e58"/>
+      <path d="M656 165 L698 207 L671 233 L630 193 Z" fill="#f3b63e"/>
+    </g>
 
-    <path d="M125 212 C170 188, 218 182, 270 193 C233 214, 205 230, 175 249 C152 263, 127 270, 102 269 C86 267, 75 257, 69 245 C87 226, 105 218, 125 212 Z" fill="#0d3d6d" opacity="0.9"/>
-
-    <path d="M200 146 C235 164, 273 189, 295 224 L264 224 L238 198 L214 216 L194 180 L200 146 Z" fill="url(#gold1)"/>
-
-    <path d="M120 146 C150 116, 180 98, 209 96 C199 115, 191 136, 191 164 C162 159, 141 154, 120 146 Z" fill="#0c2344" opacity="0.98"/>
-    <path d="M131 172 C167 177, 193 182, 229 204 C215 224, 197 245, 169 253 C145 260, 119 258, 95 250 C78 241, 62 228, 50 214 C79 189, 102 178, 131 172 Z" fill="#0c2344" opacity="0.94"/>
-    <circle cx="250" cy="180" r="9" fill="#f6fbff"/>
-    <circle cx="250" cy="180" r="4" fill="#0b2144"/>
-
-    <path d="M87 297 L236 297 L236 325 L87 325 Z" fill="#0e2f58"/>
-    <path d="M67 349 L244 349 L244 377 L67 377 Z" fill="#0e2f58"/>
-    <path d="M125 377 L314 377 L314 400 L125 400 Z" fill="#0e2f58"/>
-
-    <path d="M330 208 H385 V264 H330 Z" fill="url(#gold1)"/>
-    <path d="M390 208 H448 V308 H390 Z" fill="#1ec8b5"/>
-    <path d="M452 208 H510 V346 H452 Z" fill="#f1b443"/>
-    <path d="M514 208 H572 V298 H514 Z" fill="#67b67f"/>
-
-    <path d="M318 327 L435 211 L510 211 L405 360 L318 327 Z" fill="url(#gold1)"/>
-    <path d="M318 327 L435 211 L503 211 L395 350 L318 327 Z" fill="url(#gold1)" opacity="0.9"/>
-    <path d="M317 360 L558 360" stroke="#f4d67d" stroke-width="9" stroke-linecap="round"/>
+    <g>
+      <path d="M152 611 C270 618, 350 599, 441 559 C528 521, 603 517, 679 558 C612 610, 526 632, 440 641 C351 649, 243 639, 152 611 Z" fill="#0e8bb5" opacity="0.4"/>
+      <path d="M77 639 C155 617, 247 612, 323 621 C367 626, 413 634, 453 649 C384 690, 287 700, 205 696 C145 693, 109 675, 77 639 Z" fill="#1dc7db" opacity="0.78"/>
+      <path d="M356 613 C423 593, 497 592, 566 610 C643 629, 712 630, 796 598 C822 647, 788 700, 722 710 C666 719, 610 715, 555 700 C474 678, 411 650, 356 613 Z" fill="#2ac5d4" opacity="0.6"/>
+    </g>
   </g>
 
-  <g transform="translate(620, 0)">
-    <text x="0" y="170" font-size="180" font-weight="800" font-family="Arial, Helvetica, sans-serif" fill="#0b6f9f" letter-spacing="4">SIDAK</text>
-    <text x="0" y="250" font-size="58" font-weight="500" font-family="Arial, Helvetica, sans-serif" fill="#4b5b6d" letter-spacing="1">Sistem Informasi Data Aktivitas &amp; Kinerja</text>
-    <text x="0" y="340" font-size="82" font-weight="800" font-family="Arial, Helvetica, sans-serif" fill="#0b3e63" letter-spacing="2">Perikanan Konawe</text>
-    <text x="0" y="400" font-size="28" font-weight="600" font-family="Arial, Helvetica, sans-serif" fill="#3b5f7d" letter-spacing="1">Data Terintegrasi, Perikanan Maju, Konawe Sejahtera</text>
+  <g transform="translate(0,0)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">
+    <text x="600" y="880" font-size="210" font-weight="800" fill="#0d5d96" letter-spacing="4">SIDAK</text>
+    <text x="600" y="960" font-size="36" font-weight="700" fill="#0e4c76" letter-spacing="1.6">SISTEM INFORMASI DATA AKTIVITAS DAN KINERJA</text>
+    <text x="600" y="1032" font-size="52" font-weight="800" fill="#0d3f70" letter-spacing="2">PERIKANAN KABUPATEN KONAWE</text>
+    <text x="600" y="1088" font-size="33" font-weight="600" fill="#4f6880" letter-spacing="1">Data Terintegrasi, Perikanan Maju, Konawe Sejahtera.</text>
   </g>
 </svg>

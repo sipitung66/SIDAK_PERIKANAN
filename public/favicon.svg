@@ -1,45 +1,48 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">SIDAK favicon</title>
-  <desc id="desc">SIDAK circular fish emblem for tab icon.</desc>
+  <desc id="desc">SIDAK circular fish emblem icon.</desc>
   <defs>
-    <linearGradient id="teal2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1bcce9"/>
-      <stop offset="100%" stop-color="#0d7ec0"/>
+    <linearGradient id="ringBlue2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14d1f0"/>
+      <stop offset="100%" stop-color="#0d72b7"/>
+    </linearGradient>
+    <linearGradient id="fishBlue2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d3e72"/>
+      <stop offset="100%" stop-color="#0a2f5d"/>
+    </linearGradient>
+    <linearGradient id="fishLight2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1bc9e8"/>
+      <stop offset="100%" stop-color="#0d7ecd"/>
     </linearGradient>
     <linearGradient id="gold2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f9dc87"/>
-      <stop offset="50%" stop-color="#e7b74a"/>
-      <stop offset="100%" stop-color="#bc8b1b"/>
-    </linearGradient>
-    <linearGradient id="navy2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0a2548"/>
-      <stop offset="100%" stop-color="#0d1835"/>
+      <stop offset="0%" stop-color="#f9d774"/>
+      <stop offset="50%" stop-color="#f1b63d"/>
+      <stop offset="100%" stop-color="#d38a18"/>
     </linearGradient>
   </defs>
 
   <rect width="512" height="512" fill="#f3f3f3"/>
-  <circle cx="255" cy="255" r="215" fill="url(#navy2)"/>
-  <circle cx="255" cy="255" r="205" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="3"/>
+  <path d="M95 181 C58 135, 52 74, 79 26 C135 29, 191 39, 242 69 C304 104, 349 151, 373 207 C292 204, 214 217, 156 239 C128 250, 103 246, 95 181 Z" fill="url(#ringBlue2)" opacity="0.95"/>
+  <path d="M55 286 C118 265, 199 260, 284 272 C345 281, 395 295, 452 328 C390 349, 319 365, 246 372 C188 378, 141 378, 86 362 C73 335, 69 304, 55 286 Z" fill="url(#ringBlue2)" opacity="0.95"/>
 
-  <path d="M122 257 C160 164, 259 119, 365 138 C414 149, 453 169, 487 203 C434 221, 375 253, 324 290 C277 323, 226 337, 165 344 C130 347, 106 343, 89 332 C76 306, 88 281, 122 257 Z" fill="url(#teal2)"/>
-  <path d="M150 280 C178 243, 242 215, 307 216 C360 217, 409 236, 442 249 C404 276, 358 307, 305 323 C264 337, 218 343, 176 341 C149 340, 128 324, 119 302 C128 291, 139 284, 150 280 Z" fill="#0f5e96" opacity="0.5"/>
-  <path d="M156 182 C213 148, 270 158, 323 188 C284 214, 256 239, 230 275 C202 237, 177 204, 156 182 Z" fill="#0d3d6d" opacity="0.8"/>
-  <path d="M201 236 C243 211, 293 208, 347 222 C314 242, 283 258, 251 278 C224 293, 197 300, 171 298 C155 297, 144 289, 136 277 C153 257, 173 245, 201 236 Z" fill="#0d3d6d" opacity="0.9"/>
-  <path d="M272 165 C312 184, 352 214, 371 254 L337 254 L309 230 L280 246 L259 203 L272 165 Z" fill="url(#gold2)"/>
-  <path d="M184 167 C219 133, 255 115, 291 111 C282 130, 274 152, 274 183 C241 177, 209 172, 184 167 Z" fill="#0c2243" opacity="0.98"/>
-  <path d="M197 197 C239 201, 272 208, 313 233 C293 253, 269 279, 236 286 C208 292, 178 289, 151 277 C129 266, 107 248, 91 230 C122 209, 153 201, 197 197 Z" fill="#0c2243" opacity="0.94"/>
-  <circle cx="333" cy="208" r="11" fill="#f6fbff"/>
-  <circle cx="333" cy="208" r="5" fill="#0b2144"/>
+  <path d="M103 349 C140 374, 196 390, 254 387 C315 383, 373 365, 412 332 C436 311, 454 289, 470 259 C518 284, 548 312, 573 335 C535 386, 489 420, 426 448 C369 474, 316 486, 257 484 C180 480, 129 448, 103 349 Z" fill="url(#ringBlue2)" opacity="0.9"/>
 
-  <path d="M133 352 L308 352 L308 385 L133 385 Z" fill="#0e2f58"/>
-  <path d="M110 413 L320 413 L320 442 L110 442 Z" fill="#0e2f58"/>
-  <path d="M176 442 L398 442 L398 467 L176 467 Z" fill="#0e2f58"/>
+  <path d="M177 251 C231 211, 281 196, 335 197 C382 198, 428 218, 470 242 C470 267, 454 302, 414 318 C375 335, 321 342, 277 339 C228 336, 192 314, 177 277 C171 267, 171 259, 177 251 Z" fill="url(#fishBlue2)"/>
+  <path d="M120 260 C170 216, 217 203, 267 204 C245 246, 212 277, 169 292 C132 306, 90 308, 58 308 C57 291, 74 271, 120 260 Z" fill="url(#fishLight2)" opacity="0.9"/>
+  <path d="M266 196 C308 214, 352 237, 383 272 C357 274, 332 286, 306 299 C276 287, 251 270, 229 246 C234 224, 245 208, 266 196 Z" fill="#0a2958" opacity="0.95"/>
+  <path d="M370 228 L446 224 L491 270 L444 290 L370 228 Z" fill="#0c2b53"/>
+  <path d="M407 269 C432 246, 469 238, 497 239 C478 270, 457 291, 426 302 C403 310, 377 311, 359 302 C359 290, 379 279, 407 269 Z" fill="#0c2b53" opacity="0.92"/>
+  <circle cx="445" cy="228" r="11" fill="#f7fbff"/>
+  <circle cx="445" cy="228" r="4" fill="#0b2148"/>
 
-  <path d="M422 242 H474 V303 H422 Z" fill="url(#gold2)"/>
-  <path d="M480 242 H534 V347 H480 Z" fill="#1ec8b5"/>
-  <path d="M538 242 H590 V361 H538 Z" fill="#f1b443"/>
-  <path d="M596 242 H648 V323 H596 Z" fill="#67b67f"/>
-  <path d="M419 366 L540 240 L610 240 L495 388 L419 366 Z" fill="url(#gold2)"/>
-  <path d="M421 366 L540 240 L604 240 L501 382 L421 366 Z" fill="url(#gold2)" opacity="0.9"/>
-  <path d="M421 392 L673 392" stroke="#f4d67d" stroke-width="10" stroke-linecap="round"/>
+  <rect x="244" y="182" width="28" height="92" fill="#0b3d73"/>
+  <rect x="284" y="156" width="28" height="118" fill="#0d7fbd"/>
+  <rect x="325" y="138" width="28" height="136" fill="#f3b63e"/>
+  <rect x="366" y="167" width="28" height="107" fill="#8ac66d"/>
+  <path d="M440 90 L505 156 L480 180 L422 121 L440 90 Z" fill="#0a2a55"/>
+  <path d="M430 106 L518 106 L518 131 L430 131 Z" fill="#1bb5d6" opacity="0.9"/>
+  <path d="M480 180 L514 146 L562 188 L520 233 Z" fill="#0b2e58"/>
+  <path d="M506 103 L541 137 L518 160 L484 126 Z" fill="#f3b63e"/>
+
+  <path d="M101 462 C181 469, 249 453, 314 422 C378 393, 435 391, 498 422 C452 275 0 0 0 0" fill="none" opacity="0"/>
 </svg>
