@@ -51,16 +51,16 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f2044 50%, #0a2040 100%)' }}>
+      style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #0a2040 100%)' }}>
       
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #00d4aa, transparent)' }} />
+          style={{ background: 'radial-gradient(circle, #fbbf24, transparent)' }} />
         <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #00b4d8, transparent)' }} />
+          style={{ background: 'radial-gradient(circle, #f59e0b, transparent)' }} />
         <div className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full opacity-5"
-          style={{ background: 'radial-gradient(circle, #00d4aa, transparent)' }} />
+          style={{ background: 'radial-gradient(circle, #fbbf24, transparent)' }} />
       </div>
 
       {/* Wave decoration */}
@@ -70,8 +70,8 @@ export default function LoginPage() {
             fill="url(#wave-gradient)" />
           <defs>
             <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00d4aa" />
-              <stop offset="100%" stopColor="#00b4d8" />
+              <stop offset="0%" stopColor="#fbbf24" />
+              <stop offset="100%" stopColor="#f59e0b" />
             </linearGradient>
           </defs>
         </svg>
@@ -80,31 +80,31 @@ export default function LoginPage() {
       {/* Login Card */}
       <div className="relative z-10 w-full max-w-md mx-4">
         <div className="glass-card p-8" style={{
-          background: 'rgba(15, 32, 68, 0.8)',
+          background: 'rgba(255, 255, 255, 0.8)',
           backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(0, 212, 170, 0.15)',
-          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 170, 0.05)'
+          border: '1px solid rgba(251, 191, 36, 0.15)',
+          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(251, 191, 36, 0.05)'
         }}>
           {/* Logo & Brand */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <div className="rounded-2xl p-2" style={{
-                background: 'linear-gradient(135deg, rgba(0,212,170,0.15), rgba(0,180,216,0.12))',
-                boxShadow: '0 8px 24px rgba(0, 212, 170, 0.2)',
-                border: '1px solid rgba(0,212,170,0.18)'
+                background: 'linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.12))',
+                boxShadow: '0 8px 24px rgba(251, 191, 36, 0.2)',
+                border: '1px solid rgba(251,191,36,0.18)'
               }}>
-                <img src="/logo-sidak.svg?v=20260822" alt="SIDAK Logo" className="w-24 h-24 object-contain" />
+                <img src="/logo-brand.png" alt="SIDAK Logo" className="w-24 h-24 object-contain" />
               </div>
             </div>
             <h1 className="text-2xl font-bold mb-1" style={{
-              background: 'linear-gradient(135deg, #00d4aa, #00b4d8)',
+              background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
               SIDAK PERIKANAN
             </h1>
-            <p className="text-sm" style={{ color: '#94a3b8' }}>
+            <p className="text-sm" style={{ color: '#64748b' }}>
               Sistem Monitoring dan Evaluasi Program
             </p>
             <p className="text-xs mt-1" style={{ color: '#64748b' }}>
@@ -116,7 +116,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#94a3b8' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#64748b' }}>
                 Email
               </label>
               <div className="relative">
@@ -136,7 +136,7 @@ export default function LoginPage() {
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium mb-2" style={{ color: '#94a3b8' }}>
+              <label className="block text-sm font-medium mb-2" style={{ color: '#64748b' }}>
                 Password
               </label>
               <div className="relative">
@@ -179,9 +179,9 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full py-3 rounded-lg font-semibold text-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               style={{
-                background: loading ? 'rgba(0,212,170,0.5)' : 'linear-gradient(135deg, #00d4aa, #00b4d8)',
-                color: '#0a1628',
-                boxShadow: '0 4px 16px rgba(0, 212, 170, 0.3)',
+                background: loading ? 'rgba(251,191,36,0.5)' : 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+                color: '#ffffff',
+                boxShadow: '0 4px 16px rgba(251, 191, 36, 0.3)',
               }}
             >
               {loading ? (
@@ -198,17 +198,17 @@ export default function LoginPage() {
           <div className="mt-4 flex justify-center">
             <Link href="/beranda"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:opacity-90"
-              style={{ background: 'rgba(255,255,255,0.04)', color: '#e2e8f0', border: '1px solid rgba(255,255,255,0.08)' }}>
+              style={{ background: 'rgba(255,255,255,0.04)', color: '#1e293b', border: '1px solid rgba(0,0,0,0.06)' }}>
               <Waves size={14} /> Kembali ke Beranda
             </Link>
           </div>
 
           {/* Demo credentials */}
           <div className="mt-6 p-4 rounded-lg" style={{
-            background: 'rgba(0, 212, 170, 0.05)',
-            border: '1px solid rgba(0, 212, 170, 0.1)'
+            background: 'rgba(251, 191, 36, 0.05)',
+            border: '1px solid rgba(251, 191, 36, 0.1)'
           }}>
-            <p className="text-xs font-medium mb-2 flex items-center gap-1" style={{ color: '#00d4aa' }}>
+            <p className="text-xs font-medium mb-2 flex items-center gap-1" style={{ color: '#fbbf24' }}>
               <Waves size={12} /> Demo Credentials
             </p>
             <p className="text-xs mb-3" style={{ color: '#64748b' }}>
@@ -216,13 +216,13 @@ export default function LoginPage() {
             </p>
             <div className="space-y-1">
               <p className="text-xs" style={{ color: '#64748b' }}>
-                <span style={{ color: '#94a3b8' }}>Super Admin:</span> admin@sidak.go.id / Admin123!
+                <span style={{ color: '#64748b' }}>Super Admin:</span> admin@sidak.go.id / Admin123!
               </p>
               <p className="text-xs" style={{ color: '#64748b' }}>
-                <span style={{ color: '#94a3b8' }}>Admin Dinas:</span> admin2@sidak.go.id / Admin123!
+                <span style={{ color: '#64748b' }}>Admin Dinas:</span> admin2@sidak.go.id / Admin123!
               </p>
               <p className="text-xs" style={{ color: '#64748b' }}>
-                <span style={{ color: '#94a3b8' }}>Petugas Lapangan:</span> petugas@sidak.go.id / Petugas123!
+                <span style={{ color: '#64748b' }}>Petugas Lapangan:</span> petugas@sidak.go.id / Petugas123!
               </p>
             </div>
           </div>

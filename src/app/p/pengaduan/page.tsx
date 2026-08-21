@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { MessageSquare, Search, CheckCircle, Clock, AlertCircle, XCircle, Fish, Anchor, ArrowLeft } from 'lucide-react';
 
 const STATUS_COLOR: Record<string, string> = {
-  menunggu: '#f59e0b', diproses: '#00b4d8', selesai: '#4ade80', ditolak: '#f87171',
+  menunggu: '#f59e0b', diproses: '#f59e0b', selesai: '#4ade80', ditolak: '#f87171',
 };
 const STATUS_ICON: Record<string, React.ElementType> = {
   menunggu: Clock, diproses: AlertCircle, selesai: CheckCircle, ditolak: XCircle,
@@ -95,26 +95,26 @@ export default function PublicPengaduanPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#0a1628' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: '#ffffff' }}>
 
       {/* ── Nav bar ── */}
-      <header className="flex items-center gap-3 px-6 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
+      <header className="flex items-center gap-3 px-6 py-4 border-b" style={{ borderColor: 'rgba(0,0,0,0.05)' }}>
         <div className="w-9 h-9 rounded-full flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg, #1a4a8a, #0e7490)', border: '2px solid rgba(0,212,170,0.4)' }}>
-          <Anchor size={16} style={{ color: '#00d4aa' }} />
+          style={{ background: 'linear-gradient(135deg, #1a4a8a, #0e7490)', border: '2px solid rgba(251,191,36,0.4)' }}>
+          <Anchor size={16} style={{ color: '#fbbf24' }} />
         </div>
         <div>
-          <p className="font-extrabold text-sm" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <p className="font-extrabold text-sm" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             SIDAK PERIKANAN
           </p>
           <p className="text-xs" style={{ color: '#64748b' }}>Dinas Perikanan Kabupaten Konawe</p>
         </div>
         <div className="ml-auto flex items-center gap-3">
-          <Fish size={14} style={{ color: '#00d4aa' }} />
-          <span className="text-xs font-medium" style={{ color: '#00d4aa' }}>Portal Pengaduan Publik</span>
+          <Fish size={14} style={{ color: '#fbbf24' }} />
+          <span className="text-xs font-medium" style={{ color: '#fbbf24' }}>Portal Pengaduan Publik</span>
           <Link href="/beranda"
             className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg"
-            style={{ background: 'rgba(255,255,255,0.05)', color: '#64748b', border: '1px solid rgba(255,255,255,0.08)' }}>
+            style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.06)' }}>
             <ArrowLeft size={12} /> Beranda
           </Link>
         </div>
@@ -127,10 +127,10 @@ export default function PublicPengaduanPage() {
           {/* Title */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4"
-              style={{ background: 'rgba(0,212,170,0.1)', border: '2px solid rgba(0,212,170,0.25)' }}>
-              <MessageSquare size={28} style={{ color: '#00d4aa' }} />
+              style={{ background: 'rgba(251,191,36,0.1)', border: '2px solid rgba(251,191,36,0.25)' }}>
+              <MessageSquare size={28} style={{ color: '#fbbf24' }} />
             </div>
-            <h1 className="text-2xl font-bold" style={{ color: '#e2e8f0' }}>Sampaikan Pengaduan Anda</h1>
+            <h1 className="text-2xl font-bold" style={{ color: '#1e293b' }}>Sampaikan Pengaduan Anda</h1>
             <p className="text-sm mt-2" style={{ color: '#64748b' }}>
               Pengaduan Anda akan diteruskan ke bidang terkait Dinas Perikanan Konawe
             </p>
@@ -142,9 +142,9 @@ export default function PublicPengaduanPage() {
               <button key={t} onClick={() => setTab(t)}
                 className="flex-1 py-2.5 rounded-xl text-sm font-medium transition-all"
                 style={{
-                  background: tab === t ? 'rgba(0,212,170,0.15)' : 'rgba(255,255,255,0.04)',
-                  color: tab === t ? '#00d4aa' : '#64748b',
-                  border: `1px solid ${tab === t ? 'rgba(0,212,170,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                  background: tab === t ? 'rgba(251,191,36,0.15)' : 'rgba(255,255,255,0.04)',
+                  color: tab === t ? '#fbbf24' : '#64748b',
+                  border: `1px solid ${tab === t ? 'rgba(251,191,36,0.35)' : 'rgba(0,0,0,0.06)'}`,
                 }}>
                 {t === 'kirim' ? '✉️ Kirim Pengaduan' : '🔍 Cek Status Tiket'}
               </button>
@@ -160,12 +160,12 @@ export default function PublicPengaduanPage() {
                   style={{ background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.3)' }}>
                   <CheckCircle size={32} style={{ color: '#4ade80' }} />
                   <p className="font-semibold" style={{ color: '#4ade80' }}>Pengaduan Berhasil Dikirim!</p>
-                  <p className="text-sm" style={{ color: '#94a3b8' }}>Nomor tiket Anda:</p>
-                  <p className="font-mono text-xl font-bold" style={{ color: '#e2e8f0' }}>{tiketBaru}</p>
+                  <p className="text-sm" style={{ color: '#64748b' }}>Nomor tiket Anda:</p>
+                  <p className="font-mono text-xl font-bold" style={{ color: '#1e293b' }}>{tiketBaru}</p>
                   <p className="text-xs" style={{ color: '#64748b' }}>Simpan nomor ini untuk memantau perkembangan pengaduan Anda</p>
                   <button onClick={() => setTiketBaru('')}
                     className="mt-2 px-4 py-2 rounded-lg text-sm font-medium"
-                    style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.2)' }}>
+                    style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}>
                     Kirim Pengaduan Lain
                   </button>
                 </div>
@@ -175,18 +175,18 @@ export default function PublicPengaduanPage() {
                 <>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Lengkap *</label>
+                      <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Lengkap *</label>
                       <input value={form.namaPengadu} onChange={e => set('namaPengadu', e.target.value)}
                         className="input-dark text-sm w-full" placeholder="Nama Anda" />
                     </div>
                     <div>
-                      <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>No. HP / WhatsApp</label>
+                      <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>No. HP / WhatsApp</label>
                       <input value={form.noHp} onChange={e => set('noHp', e.target.value)}
                         className="input-dark text-sm w-full" placeholder="08xxxxxxxxxx" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>
+                    <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>
                       NIK (Nomor Induk Kependudukan)
                       <span className="ml-1.5 text-xs" style={{ color: '#475569' }}>— opsional, 16 digit</span>
                     </label>
@@ -212,7 +212,7 @@ export default function PublicPengaduanPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Kategori</label>
+                      <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Kategori</label>
                       <select value={form.kategori} onChange={e => set('kategori', e.target.value)}
                         className="input-dark text-sm w-full">
                         <option value="tangkap">🎣 Perikanan Tangkap</option>
@@ -223,13 +223,13 @@ export default function PublicPengaduanPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Kecamatan</label>
+                      <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Kecamatan</label>
                       <input value={form.kecamatan} onChange={e => set('kecamatan', e.target.value)}
                         className="input-dark text-sm w-full" placeholder="Kecamatan Anda" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Isi Pengaduan *</label>
+                    <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Isi Pengaduan *</label>
                     <textarea value={form.isiPengaduan} onChange={e => set('isiPengaduan', e.target.value)}
                       rows={5} className="input-dark text-sm w-full resize-none"
                       placeholder="Jelaskan secara detail permasalahan, aspirasi, atau pertanyaan yang ingin Anda sampaikan kepada Dinas Perikanan Konawe..." />
@@ -241,7 +241,7 @@ export default function PublicPengaduanPage() {
                   )}
                   <button onClick={handleKirim} disabled={saving}
                     className="w-full py-3 rounded-xl text-sm font-semibold disabled:opacity-50 transition-all hover:opacity-90"
-                    style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+                    style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
                     {saving ? 'Mengirim...' : 'Kirim Pengaduan →'}
                   </button>
                 </>
@@ -252,7 +252,7 @@ export default function PublicPengaduanPage() {
           {/* ─ Tab Cek Tiket ─ */}
           {tab === 'cek' && (
             <div className="glass-card p-6 space-y-4">
-              <p className="text-sm" style={{ color: '#94a3b8' }}>
+              <p className="text-sm" style={{ color: '#64748b' }}>
                 Masukkan nomor tiket yang Anda terima saat pertama kali mengirim pengaduan.
               </p>
               <div className="flex gap-2">
@@ -266,7 +266,7 @@ export default function PublicPengaduanPage() {
                 </div>
                 <button onClick={handleCek} disabled={cekLoading || !tiketCek.trim()}
                   className="px-5 py-2 rounded-lg text-sm font-medium disabled:opacity-50"
-                  style={{ background: 'rgba(0,212,170,0.15)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.3)' }}>
+                  style={{ background: 'rgba(251,191,36,0.15)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.3)' }}>
                   {cekLoading ? '...' : 'Cek'}
                 </button>
               </div>
@@ -284,7 +284,7 @@ export default function PublicPengaduanPage() {
                     <div className="p-4 rounded-xl"
                       style={{ background: `${STATUS_COLOR[tiketData.status]}11`, border: `1px solid ${STATUS_COLOR[tiketData.status]}33` }}>
                       <div className="flex items-center justify-between mb-3">
-                        <p className="font-mono font-bold text-lg" style={{ color: '#e2e8f0' }}>
+                        <p className="font-mono font-bold text-lg" style={{ color: '#1e293b' }}>
                           {tiketData.nomorTiket}
                         </p>
                         <div className="flex items-center gap-2">
@@ -295,8 +295,8 @@ export default function PublicPengaduanPage() {
                         </div>
                       </div>
                       {tiketData.bidangDisposisi && (
-                        <p className="text-xs" style={{ color: '#94a3b8' }}>
-                          📌 Ditangani oleh: <strong style={{ color: '#e2e8f0' }}>{tiketData.bidangDisposisi}</strong>
+                        <p className="text-xs" style={{ color: '#64748b' }}>
+                          📌 Ditangani oleh: <strong style={{ color: '#1e293b' }}>{tiketData.bidangDisposisi}</strong>
                         </p>
                       )}
                       <p className="text-xs mt-1" style={{ color: '#64748b' }}>
@@ -310,11 +310,11 @@ export default function PublicPengaduanPage() {
                     </div>
                     {tiketData.catatanAdmin && (
                       <div className="p-4 rounded-xl"
-                        style={{ background: 'rgba(0,180,216,0.05)', border: '1px solid rgba(0,180,216,0.15)' }}>
-                        <p className="text-xs font-semibold mb-2" style={{ color: '#00b4d8' }}>
+                        style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)' }}>
+                        <p className="text-xs font-semibold mb-2" style={{ color: '#f59e0b' }}>
                           Balasan / Tindak Lanjut Dinas
                         </p>
-                        <p className="text-sm leading-relaxed" style={{ color: '#94a3b8' }}>
+                        <p className="text-sm leading-relaxed" style={{ color: '#64748b' }}>
                           {tiketData.catatanAdmin}
                         </p>
                       </div>

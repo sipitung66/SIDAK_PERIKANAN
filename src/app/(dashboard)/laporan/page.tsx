@@ -13,7 +13,7 @@ interface Pengaduan {
 }
 const KATEGORI_LABEL: Record<string, string> = { tangkap: '🎣 Tangkap', budidaya: '🐠 Budidaya', pengolahan: '🏭 Pengolahan', pengawasan: '🛡 Pengawasan', lainnya: 'Lainnya' };
 const STATUS_ICON: Record<string, React.ElementType> = { menunggu: Clock, diproses: AlertCircle, selesai: CheckCircle, ditolak: XCircle };
-const STATUS_COLOR: Record<string, string> = { menunggu: '#f59e0b', diproses: '#00b4d8', selesai: '#4ade80', ditolak: '#f87171' };
+const STATUS_COLOR: Record<string, string> = { menunggu: '#f59e0b', diproses: '#f59e0b', selesai: '#4ade80', ditolak: '#f87171' };
 const emptyForm = { namaPengadu: '', noHp: '', kategori: 'lainnya', kecamatan: '', isiPengaduan: '' };
 
 export default function LaporanPage() {
@@ -79,13 +79,13 @@ export default function LaporanPage() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#e2e8f0' }}>
-            <FileText size={20} style={{ color: '#00d4aa' }} /> Laporan & Pengaduan
+          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#1e293b' }}>
+            <FileText size={20} style={{ color: '#fbbf24' }} /> Laporan & Pengaduan
           </h2>
           <p className="text-sm mt-0.5" style={{ color: '#64748b' }}>Unduh laporan & kelola pengaduan masyarakat</p>
         </div>
         {tab === 'pengaduan' && (
-          <button onClick={() => setFormModal(true)} className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+          <button onClick={() => setFormModal(true)} className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
             <MessageSquare size={16} /> Tambah Pengaduan
           </button>
         )}
@@ -95,7 +95,7 @@ export default function LaporanPage() {
       <div className="flex gap-2">
         {(['laporan', 'pengaduan'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)} className="px-5 py-2 rounded-lg text-sm font-medium transition-all capitalize"
-            style={{ background: tab === t ? 'rgba(0,212,170,0.15)' : 'rgba(255,255,255,0.04)', color: tab === t ? '#00d4aa' : '#64748b', border: `1px solid ${tab === t ? 'rgba(0,212,170,0.3)' : 'rgba(255,255,255,0.08)'}` }}>
+            style={{ background: tab === t ? 'rgba(251,191,36,0.15)' : 'rgba(255,255,255,0.04)', color: tab === t ? '#fbbf24' : '#64748b', border: `1px solid ${tab === t ? 'rgba(251,191,36,0.3)' : 'rgba(0,0,0,0.06)'}` }}>
             {t === 'laporan' ? '📊 Download Laporan' : '📨 Manajemen Pengaduan'}
           </button>
         ))}
@@ -107,10 +107,10 @@ export default function LaporanPage() {
           <p className="text-sm" style={{ color: '#64748b' }}>Unduh laporan dalam format XLSX untuk dianalisis atau dilaporkan ke Bupati dan Bappeda.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { label: 'Laporan Monev Penerima', desc: 'Seluruh data penerima bantuan, status verifikasi, kapasitas produksi', tipe: 'monev', color: '#00d4aa' },
+              { label: 'Laporan Monev Penerima', desc: 'Seluruh data penerima bantuan, status verifikasi, kapasitas produksi', tipe: 'monev', color: '#fbbf24' },
               { label: 'Realisasi Keuangan', desc: 'Serapan anggaran per sub kegiatan dan program', tipe: 'realisasi', color: '#818cf8' },
               { label: 'Capaian Per Bidang', desc: 'Agregat capaian program per bidang: Tangkap, Budidaya, Pengolahan, Pengawasan', tipe: 'capaian-bidang', color: '#f59e0b' },
-              { label: 'Sebaran Wilayah', desc: 'Distribusi penerima per kecamatan dan desa', tipe: 'sebaran', color: '#00b4d8' },
+              { label: 'Sebaran Wilayah', desc: 'Distribusi penerima per kecamatan dan desa', tipe: 'sebaran', color: '#f59e0b' },
               { label: 'Rekap Pengaduan', desc: 'Semua pengaduan masyarakat dan status penanganannya', tipe: 'pengaduan', color: '#4ade80' },
               { label: 'Laporan SAKIP/IKU', desc: 'Ringkasan capaian indikator kinerja utama OPD', tipe: 'iku', color: '#f87171' },
             ].map(l => (
@@ -120,7 +120,7 @@ export default function LaporanPage() {
                     <FileText size={18} style={{ color: l.color }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold" style={{ color: '#e2e8f0' }}>{l.label}</p>
+                    <p className="text-sm font-semibold" style={{ color: '#1e293b' }}>{l.label}</p>
                     <p className="text-xs mt-0.5" style={{ color: '#64748b' }}>{l.desc}</p>
                   </div>
                 </div>
@@ -139,16 +139,16 @@ export default function LaporanPage() {
         <div className="space-y-4">
           {/* Cek Tiket */}
           <div className="glass-card p-4">
-            <p className="text-sm font-medium mb-3" style={{ color: '#e2e8f0' }}>🔍 Cek Status Tiket Pengaduan</p>
+            <p className="text-sm font-medium mb-3" style={{ color: '#1e293b' }}>🔍 Cek Status Tiket Pengaduan</p>
             <div className="flex gap-2">
               <input value={tiketSearch} onChange={e => setTiketSearch(e.target.value)} onKeyDown={e => e.key === 'Enter' && cekTiket()} placeholder="Masukkan nomor tiket (contoh: TKT-2026-XXXXX)" className="input-dark text-sm flex-1" />
-              <button onClick={cekTiket} className="px-4 py-2 rounded-lg text-sm font-medium" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.2)' }}>Cek</button>
+              <button onClick={cekTiket} className="px-4 py-2 rounded-lg text-sm font-medium" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}>Cek</button>
             </div>
             {tiketInfo && (
-              <div className="mt-3 p-3 rounded-lg" style={{ background: 'rgba(0,212,170,0.04)', border: '1px solid rgba(0,212,170,0.15)' }}>
-                <p className="text-xs font-medium" style={{ color: '#00d4aa' }}>Status: <span style={{ color: STATUS_COLOR[tiketInfo.status] }}>{tiketInfo.status.toUpperCase()}</span></p>
-                {tiketInfo.bidang && <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>Ditangani: {tiketInfo.bidang}</p>}
-                {tiketInfo.catatan && <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>Catatan: {tiketInfo.catatan}</p>}
+              <div className="mt-3 p-3 rounded-lg" style={{ background: 'rgba(251,191,36,0.04)', border: '1px solid rgba(251,191,36,0.15)' }}>
+                <p className="text-xs font-medium" style={{ color: '#fbbf24' }}>Status: <span style={{ color: STATUS_COLOR[tiketInfo.status] }}>{tiketInfo.status.toUpperCase()}</span></p>
+                {tiketInfo.bidang && <p className="text-xs mt-1" style={{ color: '#64748b' }}>Ditangani: {tiketInfo.bidang}</p>}
+                {tiketInfo.catatan && <p className="text-xs mt-1" style={{ color: '#64748b' }}>Catatan: {tiketInfo.catatan}</p>}
               </div>
             )}
             {tiketSearch && tiketInfo === null && <p className="text-xs mt-2" style={{ color: '#f87171' }}>Nomor tiket tidak ditemukan.</p>}
@@ -159,7 +159,7 @@ export default function LaporanPage() {
               <CheckCircle size={18} style={{ color: '#4ade80' }} />
               <div>
                 <p className="text-sm font-semibold" style={{ color: '#4ade80' }}>Pengaduan Berhasil Dikirim!</p>
-                <p className="text-xs" style={{ color: '#94a3b8' }}>Nomor Tiket: <strong style={{ color: '#e2e8f0' }}>{tiketResult}</strong> — simpan nomor ini untuk pelacakan</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Nomor Tiket: <strong style={{ color: '#1e293b' }}>{tiketResult}</strong> — simpan nomor ini untuk pelacakan</p>
               </div>
               <button onClick={() => setTiketResult('')} className="ml-auto text-xs" style={{ color: '#64748b' }}>✕</button>
             </div>
@@ -182,7 +182,7 @@ export default function LaporanPage() {
           <div className="glass-card overflow-hidden">
             <div className="overflow-x-auto">
               {loadPengaduan ? (
-                <div className="flex items-center justify-center h-40"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} /></div>
+                <div className="flex items-center justify-center h-40"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} /></div>
               ) : (
                 <table className="table-dark">
                   <thead><tr><th>Tiket</th><th>Pengadu</th><th>Kategori</th><th>Isi Pengaduan</th><th>Status</th><th>Bidang</th><th className="text-center">Aksi</th></tr></thead>
@@ -192,10 +192,10 @@ export default function LaporanPage() {
                       const SIcon = STATUS_ICON[p.status] || Clock;
                       return (
                         <tr key={p.id}>
-                          <td><span className="font-mono text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa' }}>{p.nomorTiket}</span></td>
-                          <td><p className="text-sm font-medium" style={{ color: '#e2e8f0' }}>{p.namaPengadu}</p><p className="text-xs" style={{ color: '#64748b' }}>{p.noHp || '-'}</p></td>
+                          <td><span className="font-mono text-xs px-1.5 py-0.5 rounded" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24' }}>{p.nomorTiket}</span></td>
+                          <td><p className="text-sm font-medium" style={{ color: '#1e293b' }}>{p.namaPengadu}</p><p className="text-xs" style={{ color: '#64748b' }}>{p.noHp || '-'}</p></td>
                           <td><span className="text-xs">{KATEGORI_LABEL[p.kategori] || p.kategori}</span></td>
-                          <td><p className="text-xs max-w-xs truncate" style={{ color: '#94a3b8' }} title={p.isiPengaduan}>{p.isiPengaduan}</p></td>
+                          <td><p className="text-xs max-w-xs truncate" style={{ color: '#64748b' }} title={p.isiPengaduan}>{p.isiPengaduan}</p></td>
                           <td>
                             <div className="flex items-center gap-1.5">
                               <SIcon size={13} style={{ color: STATUS_COLOR[p.status] }} />
@@ -207,7 +207,7 @@ export default function LaporanPage() {
                             <div className="flex items-center justify-center gap-1">
                               {p.status !== 'selesai' && (
                                 <button onClick={() => { setVerifItem(p); setVerifData({ status: 'diproses', bidang: p.bidangDisposisi || '', catatan: '' }); }}
-                                  className="px-2 py-1 rounded text-xs" style={{ background: 'rgba(0,180,216,0.1)', color: '#00b4d8' }}>
+                                  className="px-2 py-1 rounded text-xs" style={{ background: 'rgba(245,158,11,0.1)', color: '#f59e0b' }}>
                                   Proses
                                 </button>
                               )}
@@ -233,9 +233,9 @@ export default function LaporanPage() {
       {/* Verif Modal */}
       <Modal isOpen={!!verifItem} onClose={() => setVerifItem(null)} title="Update Status Pengaduan" size="md">
         <div className="space-y-4">
-          <p className="text-sm" style={{ color: '#94a3b8' }}>Tiket: <strong style={{ color: '#e2e8f0' }}>{verifItem?.nomorTiket}</strong></p>
+          <p className="text-sm" style={{ color: '#64748b' }}>Tiket: <strong style={{ color: '#1e293b' }}>{verifItem?.nomorTiket}</strong></p>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Status Baru</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Status Baru</label>
             <select value={verifData.status} onChange={e => setVerifData(v => ({ ...v, status: e.target.value }))} className="input-dark text-sm w-full">
               <option value="diproses">Diproses</option>
               <option value="selesai">Selesai</option>
@@ -243,7 +243,7 @@ export default function LaporanPage() {
             </select>
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Disposisi ke Bidang</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Disposisi ke Bidang</label>
             <select value={verifData.bidang} onChange={e => setVerifData(v => ({ ...v, bidang: e.target.value }))} className="input-dark text-sm w-full">
               <option value="">-- Pilih Bidang --</option>
               <option value="Bidang Tangkap">🎣 Bidang Tangkap</option>
@@ -254,12 +254,12 @@ export default function LaporanPage() {
             </select>
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Catatan Admin</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Catatan Admin</label>
             <textarea value={verifData.catatan} onChange={e => setVerifData(v => ({ ...v, catatan: e.target.value }))} rows={3} className="input-dark text-sm w-full resize-none" placeholder="Tindak lanjut yang dilakukan..." />
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setVerifItem(null)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={handleVerif} className="flex-1 py-2.5 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>Simpan</button>
+            <button onClick={() => setVerifItem(null)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={handleVerif} className="flex-1 py-2.5 rounded-lg text-sm font-semibold" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>Simpan</button>
           </div>
         </div>
       </Modal>
@@ -269,17 +269,17 @@ export default function LaporanPage() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama *</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama *</label>
               <input value={form.namaPengadu} onChange={e => set('namaPengadu', e.target.value)} className="input-dark text-sm w-full" placeholder="Nama lengkap" />
             </div>
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>No. HP (WhatsApp)</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>No. HP (WhatsApp)</label>
               <input value={form.noHp} onChange={e => set('noHp', e.target.value)} className="input-dark text-sm w-full" placeholder="08xxxxxxxxxx" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Kategori *</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Kategori *</label>
               <select value={form.kategori} onChange={e => set('kategori', e.target.value)} className="input-dark text-sm w-full">
                 <option value="tangkap">🎣 Perikanan Tangkap</option>
                 <option value="budidaya">🐠 Perikanan Budidaya</option>
@@ -289,17 +289,17 @@ export default function LaporanPage() {
               </select>
             </div>
             <div>
-              <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Kecamatan</label>
+              <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Kecamatan</label>
               <input value={form.kecamatan} onChange={e => set('kecamatan', e.target.value)} className="input-dark text-sm w-full" placeholder="Nama kecamatan" />
             </div>
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Isi Pengaduan *</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Isi Pengaduan *</label>
             <textarea value={form.isiPengaduan} onChange={e => set('isiPengaduan', e.target.value)} rows={4} className="input-dark text-sm w-full resize-none" placeholder="Jelaskan permasalahan atau aspirasi Anda..." />
           </div>
           <div className="flex gap-3">
-            <button onClick={() => setFormModal(false)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
-            <button onClick={handleSubmitPengaduan} disabled={saving || !form.namaPengadu || !form.isiPengaduan} className="flex-1 py-2.5 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}>
+            <button onClick={() => setFormModal(false)} className="flex-1 py-2.5 rounded-lg text-sm" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
+            <button onClick={handleSubmitPengaduan} disabled={saving || !form.namaPengadu || !form.isiPengaduan} className="flex-1 py-2.5 rounded-lg text-sm font-semibold disabled:opacity-50" style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}>
               {saving ? 'Mengirim...' : 'Kirim Pengaduan'}
             </button>
           </div>

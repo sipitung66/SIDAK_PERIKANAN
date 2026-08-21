@@ -171,17 +171,17 @@ function MonevFormContent() {
   };
 
   const cls = 'input-dark text-sm';
-  const lbl = { color: '#94a3b8', fontSize: 13, fontWeight: 500, marginBottom: 4, display: 'block' };
-  const sec = { color: '#00d4aa', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', marginBottom: 12 };
+  const lbl = { color: '#64748b', fontSize: 13, fontWeight: 500, marginBottom: 4, display: 'block' };
+  const sec = { color: '#fbbf24', fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', marginBottom: 12 };
 
-  if (loading) return <div className="flex items-center justify-center h-64"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} /></div>;
+  if (loading) return <div className="flex items-center justify-center h-64"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} /></div>;
 
   return (
     <div className="space-y-6 animate-fade-in max-w-4xl mx-auto">
       <div className="flex items-center gap-3">
         <button onClick={() => router.back()} className="p-2 rounded-lg hover:bg-white/10" style={{ color: '#64748b' }}><ArrowLeft size={18} /></button>
         <div>
-          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#e2e8f0' }}><ClipboardList size={20} style={{ color: '#00d4aa' }} />{editId ? 'Edit Data Monev' : 'Input Data Monev'}</h2>
+          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#1e293b' }}><ClipboardList size={20} style={{ color: '#fbbf24' }} />{editId ? 'Edit Data Monev' : 'Input Data Monev'}</h2>
           <p className="text-sm" style={{ color: '#64748b' }}>Data penerima bantuan program perikanan</p>
         </div>
       </div>
@@ -267,7 +267,7 @@ function MonevFormContent() {
       {/* Seksi 4: Sarpras */}
       <div className="glass-card p-5 space-y-4">
         <div className="flex items-center justify-between"><p style={sec}>4. Sarpras Pendukung</p>
-          <button onClick={addSarpras} className="flex items-center gap-1 px-3 py-1.5 rounded text-xs font-medium" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa', border: '1px solid rgba(0,212,170,0.2)' }}><Plus size={12} /> Tambah</button></div>
+          <button onClick={addSarpras} className="flex items-center gap-1 px-3 py-1.5 rounded text-xs font-medium" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}><Plus size={12} /> Tambah</button></div>
         {sarpras.map((s, i) => (
           <div key={i} className="grid grid-cols-12 gap-2 items-end">
             <div className="col-span-4">{i === 0 && <label style={lbl}>Jenis Sarpras</label>}<input value={s.nama} onChange={e => updateSarpras(i, 'nama', e.target.value)} placeholder="Kolam, aerator..." className={cls} /></div>
@@ -288,11 +288,11 @@ function MonevFormContent() {
           <div><label style={lbl}>Satuan</label><input value={form.satuanKapasitas} onChange={e => setField('satuanKapasitas', e.target.value)} placeholder="kg/bulan, ton/tahun..." className={cls} /></div>
         </div>
         {(sebelum > 0 || sesudah > 0) && (
-          <div className="p-3 rounded-lg" style={{ background: 'rgba(0,212,170,0.05)', border: '1px solid rgba(0,212,170,0.15)' }}>
+          <div className="p-3 rounded-lg" style={{ background: 'rgba(251,191,36,0.05)', border: '1px solid rgba(251,191,36,0.15)' }}>
             <p className="text-xs mb-2" style={{ color: '#64748b' }}>Perhitungan otomatis % peningkatan kapasitas:</p>
             <div className="flex items-center gap-4">
-              <span className="text-lg font-bold" style={{ color: pctCalc >= 0 ? '#00d4aa' : '#f87171' }}>{pctCalc >= 0 ? '+' : ''}{pctCalc.toFixed(1)}%</span>
-              <span className="text-sm" style={{ color: '#94a3b8' }}>{sebelum} → {sesudah} {form.satuanKapasitas}</span>
+              <span className="text-lg font-bold" style={{ color: pctCalc >= 0 ? '#fbbf24' : '#f87171' }}>{pctCalc >= 0 ? '+' : ''}{pctCalc.toFixed(1)}%</span>
+              <span className="text-sm" style={{ color: '#64748b' }}>{sebelum} → {sesudah} {form.satuanKapasitas}</span>
             </div>
           </div>
         )}
@@ -344,10 +344,10 @@ function MonevFormContent() {
       </div>
 
       <div className="flex gap-4 pb-6">
-        <button onClick={() => router.back()} className="flex-1 py-3 rounded-lg text-sm font-medium" style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>Batal</button>
+        <button onClick={() => router.back()} className="flex-1 py-3 rounded-lg text-sm font-medium" style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>Batal</button>
         <button onClick={handleSubmit} disabled={saving || !form.namaPenerima || !form.subKegiatanId || !form.bentukIntervensiId}
           className="flex-2 px-8 py-3 rounded-lg text-sm font-semibold transition-all disabled:opacity-50"
-          style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628', boxShadow: '0 4px 16px rgba(0,212,170,0.3)' }}>
+          style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff', boxShadow: '0 4px 16px rgba(251,191,36,0.3)' }}>
           {saving ? 'Menyimpan...' : editId ? 'Simpan Perubahan' : 'Simpan Data Monev'}
         </button>
       </div>
@@ -357,7 +357,7 @@ function MonevFormContent() {
 
 export default function MonevTambahPage() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }} /></div>}>
+    <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin" style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }} /></div>}>
       <MonevFormContent />
     </Suspense>
   );

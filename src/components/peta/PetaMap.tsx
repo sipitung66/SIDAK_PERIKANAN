@@ -41,10 +41,10 @@ interface FilterOptions {
 }
 
 const KATEGORI_COLORS: Record<string, string> = {
-  budidaya_ikan: '#00d4aa', budidaya_udang: '#00b4d8',
+  budidaya_ikan: '#fbbf24', budidaya_udang: '#f59e0b',
   perikanan_tangkap: '#f59e0b', pengolahan_ikan: '#818cf8',
   pemasaran_ikan: '#f87171', budidaya_rumput_laut: '#4ade80',
-  lainnya: '#94a3b8',
+  lainnya: '#64748b',
 };
 
 const STATUS_COLORS: Record<string, string> = {
@@ -107,7 +107,7 @@ export default function PetaMap() {
     fetch('/api/map/filters').then(r => r.json()).then(d => { if (d.success) setFilterOptions(d.data); });
   }, []);
 
-  const getColor = (p: MapPoint) => colorBy === 'status' ? STATUS_COLORS[p.status] || '#94a3b8' : KATEGORI_COLORS[p.kategoriKegiatan] || '#94a3b8';
+  const getColor = (p: MapPoint) => colorBy === 'status' ? STATUS_COLORS[p.status] || '#64748b' : KATEGORI_COLORS[p.kategoriKegiatan] || '#64748b';
   const getEmoji = (p: MapPoint) => KATEGORI_EMOJIS[p.kategoriKegiatan] || '📍';
 
   const selectStyle = "input-dark text-xs py-1.5";
@@ -150,38 +150,38 @@ export default function PetaMap() {
         <div className="absolute top-3 right-3 z-[1000] flex flex-col gap-2">
           <button onClick={() => setShowFilters(s => !s)}
             className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium shadow-lg"
-            style={{ background: 'rgba(15,32,68,0.95)', border: '1px solid rgba(0,212,170,0.3)', color: '#00d4aa', backdropFilter: 'blur(10px)' }}>
+            style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(251,191,36,0.3)', color: '#fbbf24', backdropFilter: 'blur(10px)' }}>
             <Filter size={13} /> Filter
           </button>
           <button onClick={() => setShowHeatmap(s => !s)}
             className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium shadow-lg"
-            style={{ background: showHeatmap ? 'rgba(0,212,170,0.2)' : 'rgba(15,32,68,0.95)', border: `1px solid ${showHeatmap ? 'rgba(0,212,170,0.5)' : 'rgba(255,255,255,0.1)'}`, color: showHeatmap ? '#00d4aa' : '#94a3b8', backdropFilter: 'blur(10px)' }}>
+            style={{ background: showHeatmap ? 'rgba(251,191,36,0.2)' : 'rgba(255,255,255,0.95)', border: `1px solid ${showHeatmap ? 'rgba(251,191,36,0.5)' : 'rgba(0,0,0,0.08)'}`, color: showHeatmap ? '#fbbf24' : '#64748b', backdropFilter: 'blur(10px)' }}>
             <Layers size={13} /> Heatmap
           </button>
           <button onClick={fetchPoints}
             className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs shadow-lg"
-            style={{ background: 'rgba(15,32,68,0.95)', border: '1px solid rgba(255,255,255,0.1)', color: '#64748b', backdropFilter: 'blur(10px)' }}>
+            style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(0,0,0,0.08)', color: '#64748b', backdropFilter: 'blur(10px)' }}>
             <RefreshCw size={13} className={loading ? 'animate-spin' : ''} />
           </button>
         </div>
 
         {/* Stats overlay */}
         <div className="absolute bottom-3 left-3 z-[1000] px-3 py-2 rounded-lg text-xs"
-          style={{ background: 'rgba(15,32,68,0.9)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: '#94a3b8' }}>
-          {loading ? 'Memuat...' : <><strong style={{ color: '#00d4aa' }}>{points.length}</strong> titik penerima</>}
+          style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(0,0,0,0.08)', backdropFilter: 'blur(10px)', color: '#64748b' }}>
+          {loading ? 'Memuat...' : <><strong style={{ color: '#fbbf24' }}>{points.length}</strong> titik penerima</>}
         </div>
 
         {/* Legend */}
         <div className="absolute bottom-3 right-3 z-[1000] px-3 py-2 rounded-lg text-xs"
-          style={{ background: 'rgba(15,32,68,0.9)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+          style={{ background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(0,0,0,0.08)', backdropFilter: 'blur(10px)' }}>
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>Warna by:</span>
+            <span className="text-xs font-medium" style={{ color: '#64748b' }}>Warna by:</span>
             <button onClick={() => setColorBy('kategori')}
-              className="text-xs px-2 py-0.5 rounded" style={{ background: colorBy === 'kategori' ? 'rgba(0,212,170,0.2)' : 'transparent', color: colorBy === 'kategori' ? '#00d4aa' : '#64748b' }}>
+              className="text-xs px-2 py-0.5 rounded" style={{ background: colorBy === 'kategori' ? 'rgba(251,191,36,0.2)' : 'transparent', color: colorBy === 'kategori' ? '#fbbf24' : '#64748b' }}>
               Kategori
             </button>
             <button onClick={() => setColorBy('status')}
-              className="text-xs px-2 py-0.5 rounded" style={{ background: colorBy === 'status' ? 'rgba(0,212,170,0.2)' : 'transparent', color: colorBy === 'status' ? '#00d4aa' : '#64748b' }}>
+              className="text-xs px-2 py-0.5 rounded" style={{ background: colorBy === 'status' ? 'rgba(251,191,36,0.2)' : 'transparent', color: colorBy === 'status' ? '#fbbf24' : '#64748b' }}>
               Status
             </button>
           </div>
@@ -209,7 +209,7 @@ export default function PetaMap() {
       {/* Filter Panel */}
       {showFilters && (
         <div className="w-64 flex-shrink-0 glass-card p-4 space-y-3 overflow-y-auto" style={{ maxHeight: '80vh' }}>
-          <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#00d4aa' }}>Filter Peta</p>
+          <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#fbbf24' }}>Filter Peta</p>
           {filterOptions && (
             <>
               <div>
@@ -251,7 +251,7 @@ export default function PetaMap() {
           )}
           <button onClick={() => setFilters({ programId: '', kegiatanId: '', kecamatanId: '', status: '', kategori: '' })}
             className="w-full py-2 rounded-lg text-xs"
-            style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}>
+            style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}>
             Reset Filter
           </button>
 
@@ -263,8 +263,8 @@ export default function PetaMap() {
                 points.reduce((acc, p) => { acc[p.kecamatan] = (acc[p.kecamatan] || 0) + 1; return acc; }, {} as Record<string, number>)
               ).sort(([, a], [, b]) => b - a).slice(0, 8).map(([kec, cnt]) => (
                 <div key={kec} className="flex justify-between items-center py-1">
-                  <span className="text-xs truncate" style={{ color: '#94a3b8', maxWidth: 140 }}>{kec}</span>
-                  <span className="text-xs font-medium ml-2" style={{ color: '#00d4aa' }}>{cnt}</span>
+                  <span className="text-xs truncate" style={{ color: '#64748b', maxWidth: 140 }}>{kec}</span>
+                  <span className="text-xs font-medium ml-2" style={{ color: '#fbbf24' }}>{cnt}</span>
                 </div>
               ))}
             </div>
@@ -277,12 +277,12 @@ export default function PetaMap() {
 
 function MapPopup({ point }: { point: MapPoint }) {
   return (
-    <div style={{ fontFamily: 'sans-serif', minWidth: 200, color: '#e2e8f0' }}>
+    <div style={{ fontFamily: 'sans-serif', minWidth: 200, color: '#1e293b' }}>
       <div style={{ marginBottom: 8 }}>
-        <p style={{ fontWeight: 700, fontSize: 13, color: '#00d4aa', margin: 0 }}>{point.namaPenerima}</p>
-        {point.kelompok && <p style={{ fontSize: 11, color: '#94a3b8', margin: '2px 0 0' }}>{point.kelompok}</p>}
+        <p style={{ fontWeight: 700, fontSize: 13, color: '#fbbf24', margin: 0 }}>{point.namaPenerima}</p>
+        {point.kelompok && <p style={{ fontSize: 11, color: '#64748b', margin: '2px 0 0' }}>{point.kelompok}</p>}
       </div>
-      <div style={{ fontSize: 11, color: '#94a3b8', marginBottom: 8, lineHeight: 1.6 }}>
+      <div style={{ fontSize: 11, color: '#64748b', marginBottom: 8, lineHeight: 1.6 }}>
         <div>📍 {point.desa}, {point.kecamatan}</div>
         <div>🐟 {point.kegiatanNama}</div>
         <div>🎁 {point.bentukBantuan}</div>
@@ -291,12 +291,12 @@ function MapPopup({ point }: { point: MapPoint }) {
       <div style={{ marginBottom: 6 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 3 }}>
           <span style={{ color: '#64748b' }}>Kapasitas</span>
-          <span style={{ color: '#00d4aa', fontWeight: 600 }}>{point.kapasitasSebelum} → {point.kapasitasSesudah} {point.satuanKapasitas}</span>
+          <span style={{ color: '#fbbf24', fontWeight: 600 }}>{point.kapasitasSebelum} → {point.kapasitasSesudah} {point.satuanKapasitas}</span>
         </div>
-        <div style={{ height: 6, borderRadius: 3, background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
-          <div style={{ height: '100%', width: `${Math.min(100, point.persentaseCapaian)}%`, background: 'linear-gradient(90deg, #00d4aa, #00b4d8)', borderRadius: 3 }} />
+        <div style={{ height: 6, borderRadius: 3, background: 'rgba(0,0,0,0.08)', overflow: 'hidden' }}>
+          <div style={{ height: '100%', width: `${Math.min(100, point.persentaseCapaian)}%`, background: 'linear-gradient(90deg, #fbbf24, #f59e0b)', borderRadius: 3 }} />
         </div>
-        <p style={{ fontSize: 11, textAlign: 'right', margin: '2px 0 0', color: '#00d4aa', fontWeight: 600 }}>{point.persentaseCapaian}%</p>
+        <p style={{ fontSize: 11, textAlign: 'right', margin: '2px 0 0', color: '#fbbf24', fontWeight: 600 }}>{point.persentaseCapaian}%</p>
       </div>
       <Badge variant={point.status}>{point.status}</Badge>
     </div>

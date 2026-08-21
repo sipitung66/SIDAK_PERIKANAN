@@ -107,15 +107,15 @@ export default function UsersPage() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#e2e8f0' }}>
-            <UsersIcon size={20} style={{ color: '#00d4aa' }} /> Manajemen User
+          <h2 className="text-xl font-bold flex items-center gap-2" style={{ color: '#1e293b' }}>
+            <UsersIcon size={20} style={{ color: '#fbbf24' }} /> Manajemen User
           </h2>
           <p className="text-sm mt-0.5" style={{ color: '#64748b' }}>Kelola data pengguna sistem</p>
         </div>
         <button
           onClick={openAdd}
           className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
-          style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}
+          style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}
         >
           <Plus size={16} /> Tambah User
         </button>
@@ -137,7 +137,7 @@ export default function UsersPage() {
             <div className="flex items-center justify-center h-40">
               <div
                 className="w-6 h-6 border-2 border-t-transparent rounded-full animate-spin"
-                style={{ borderColor: '#00d4aa', borderTopColor: 'transparent' }}
+                style={{ borderColor: '#fbbf24', borderTopColor: 'transparent' }}
               />
             </div>
           ) : (
@@ -161,9 +161,9 @@ export default function UsersPage() {
                 {users.map((u) => (
                   <tr key={u.id}>
                     <td>
-                      <p className="font-medium" style={{ color: '#e2e8f0' }}>{u.nama}</p>
+                      <p className="font-medium" style={{ color: '#1e293b' }}>{u.nama}</p>
                     </td>
-                    <td style={{ color: '#94a3b8' }}>{u.email}</td>
+                    <td style={{ color: '#64748b' }}>{u.email}</td>
                     <td>
                       <Badge variant={u.role === 'super_admin' ? 'aktif' : u.role === 'admin_dinas' ? 'selesai' : 'tidak_aktif'}>
                         {roleLabels[u.role]}
@@ -175,7 +175,7 @@ export default function UsersPage() {
                           onClick={() => openEdit(u)}
                           title="Edit"
                           className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
-                          style={{ color: '#94a3b8' }}
+                          style={{ color: '#64748b' }}
                         >
                           <Edit2 size={15} />
                         </button>
@@ -200,7 +200,7 @@ export default function UsersPage() {
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title={editItem ? 'Edit User' : 'Tambah User'} size="md">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Nama Lengkap</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Nama Lengkap</label>
             <input
               value={form.nama}
               onChange={(e) => setForm((f) => ({ ...f, nama: e.target.value }))}
@@ -209,7 +209,7 @@ export default function UsersPage() {
             />
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Email</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Email</label>
             <input
               type="email"
               value={form.email}
@@ -219,7 +219,7 @@ export default function UsersPage() {
             />
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>
               Password {editItem && <span className="text-xs italic">(Kosongkan jika tidak ingin mengubah)</span>}
             </label>
             <input
@@ -231,7 +231,7 @@ export default function UsersPage() {
             />
           </div>
           <div>
-            <label className="block text-sm mb-1.5" style={{ color: '#94a3b8' }}>Role</label>
+            <label className="block text-sm mb-1.5" style={{ color: '#64748b' }}>Role</label>
             <select
               value={form.role}
               onChange={(e) => setForm((f) => ({ ...f, role: e.target.value as UserRole }))}
@@ -248,7 +248,7 @@ export default function UsersPage() {
             <button
               onClick={() => setModalOpen(false)}
               className="flex-1 py-2.5 rounded-lg text-sm transition-colors"
-              style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}
+              style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}
             >
               Batal
             </button>
@@ -256,7 +256,7 @@ export default function UsersPage() {
               onClick={handleSave}
               disabled={saving || !form.nama || !form.email || (!editItem && !form.password)}
               className="flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all disabled:opacity-50"
-              style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}
+              style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}
             >
               {saving ? 'Menyimpan...' : 'Simpan'}
             </button>
@@ -265,12 +265,12 @@ export default function UsersPage() {
       </Modal>
 
       <Modal isOpen={!!deleteId} onClose={() => setDeleteId(null)} title="Konfirmasi Hapus" size="sm">
-        <p className="text-sm mb-6" style={{ color: '#94a3b8' }}>Yakin hapus user ini?</p>
+        <p className="text-sm mb-6" style={{ color: '#64748b' }}>Yakin hapus user ini?</p>
         <div className="flex gap-3">
           <button
             onClick={() => setDeleteId(null)}
             className="flex-1 py-2.5 rounded-lg text-sm"
-            style={{ background: 'rgba(255,255,255,0.05)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.1)' }}
+            style={{ background: 'rgba(0,0,0,0.03)', color: '#64748b', border: '1px solid rgba(0,0,0,0.08)' }}
           >
             Batal
           </button>

@@ -116,12 +116,12 @@ export default function BeritaPage() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <Newspaper size={18} style={{ color: '#00d4aa' }} />
-            <h2 className="text-xl font-bold" style={{ color: '#e2e8f0' }}>Portal Berita</h2>
+            <Newspaper size={18} style={{ color: '#fbbf24' }} />
+            <h2 className="text-xl font-bold" style={{ color: '#1e293b' }}>Portal Berita</h2>
           </div>
           <p className="text-sm mt-0.5" style={{ color: '#64748b' }}>Kelola publikasi berita yang tampil di halaman beranda.</p>
         </div>
-        <Link href="/beranda" className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.04)', color: '#94a3b8', border: '1px solid rgba(255,255,255,0.08)' }}>
+        <Link href="/beranda" className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm" style={{ background: 'rgba(255,255,255,0.04)', color: '#64748b', border: '1px solid rgba(0,0,0,0.06)' }}>
           <ArrowLeft size={14} /> Beranda
         </Link>
       </div>
@@ -129,8 +129,8 @@ export default function BeritaPage() {
       <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-5">
         <div className="glass-card p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Plus size={16} style={{ color: '#00d4aa' }} />
-            <h3 className="text-base font-bold" style={{ color: '#e2e8f0' }}>{editingId ? 'Edit Berita' : 'Tambah Berita Baru'}</h3>
+            <Plus size={16} style={{ color: '#fbbf24' }} />
+            <h3 className="text-base font-bold" style={{ color: '#1e293b' }}>{editingId ? 'Edit Berita' : 'Tambah Berita Baru'}</h3>
           </div>
 
           <div className="space-y-4">
@@ -195,7 +195,7 @@ export default function BeritaPage() {
                 onClick={handleSubmit}
                 disabled={!form.judul.trim() || !form.ringkasan.trim() || !form.isi.trim()}
                 className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold disabled:opacity-50"
-                style={{ background: 'linear-gradient(135deg, #00d4aa, #00b4d8)', color: '#0a1628' }}
+                style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#ffffff' }}
               >
                 <Save size={15} /> {editingId ? 'Simpan Perubahan' : 'Simpan Berita'}
               </button>
@@ -206,7 +206,7 @@ export default function BeritaPage() {
                     setForm(emptyForm);
                   }}
                   className="px-4 py-3 rounded-lg text-sm font-medium"
-                  style={{ background: 'rgba(255,255,255,0.04)', color: '#cbd5e1', border: '1px solid rgba(255,255,255,0.08)' }}
+                  style={{ background: 'rgba(255,255,255,0.04)', color: '#475569', border: '1px solid rgba(0,0,0,0.06)' }}
                 >
                   Batal
                 </button>
@@ -216,30 +216,30 @@ export default function BeritaPage() {
         </div>
 
         <div className="glass-card p-5">
-          <h3 className="text-base font-bold mb-4" style={{ color: '#e2e8f0' }}>Daftar Berita</h3>
+          <h3 className="text-base font-bold mb-4" style={{ color: '#1e293b' }}>Daftar Berita</h3>
           <div className="space-y-3 max-h-[620px] overflow-y-auto pr-1">
             {berita.length === 0 ? (
               <div className="text-sm py-8 text-center" style={{ color: '#64748b' }}>Belum ada berita yang diposting.</div>
             ) : (
               berita.map((item) => (
-                <div key={item.id} className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div key={item.id} className="rounded-xl p-3" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(0,0,0,0.03)' }}>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] px-2 py-1 rounded-full" style={{ background: 'rgba(0,212,170,0.12)', color: '#00d4aa' }}>
+                    <span className="text-[10px] uppercase tracking-[0.2em] px-2 py-1 rounded-full" style={{ background: 'rgba(251,191,36,0.12)', color: '#fbbf24' }}>
                       {item.kategori}
                     </span>
                     <button onClick={() => handleDelete(item.id)} className="p-1.5 rounded hover:bg-red-500/20" style={{ color: '#f87171' }}>
                       <Trash2 size={13} />
                     </button>
                   </div>
-                  <p className="text-sm font-bold mb-1" style={{ color: '#e2e8f0' }}>{item.judul}</p>
-                  <p className="text-xs leading-relaxed" style={{ color: '#94a3b8' }}>{item.ringkasan}</p>
+                  <p className="text-sm font-bold mb-1" style={{ color: '#1e293b' }}>{item.judul}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: '#64748b' }}>{item.ringkasan}</p>
                   <div className="mt-2 text-[11px] flex items-center justify-between gap-2" style={{ color: '#64748b' }}>
                     <span>{item.penulis}</span>
                     <div className="flex items-center gap-2">
-                      <button onClick={() => handleEdit(item)} className="font-medium" style={{ color: '#00d4aa' }}>
+                      <button onClick={() => handleEdit(item)} className="font-medium" style={{ color: '#fbbf24' }}>
                         Edit
                       </button>
-                      <Link href={`/berita/${item.id}`} className="font-medium" style={{ color: '#00d4aa' }}>
+                      <Link href={`/berita/${item.id}`} className="font-medium" style={{ color: '#fbbf24' }}>
                         Lihat detail
                       </Link>
                     </div>
